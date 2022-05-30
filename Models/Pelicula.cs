@@ -10,9 +10,12 @@ namespace Challenge17ApiPeliculas.Models
     public class Pelicula
     {
         [Key]
+        [JsonIgnore]
         public int Id { get; set; }
         public string Titulo { get; set; }
         public string Genero { get; set; }
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}")]
         public DateTime FechaBaja { get; set; }
         [JsonIgnore]
         public Alquiler? Alquiler { get; set; }

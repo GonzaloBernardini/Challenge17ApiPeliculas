@@ -60,13 +60,17 @@ namespace Challenge17ApiPeliculas.Controllers
         // PUT: api/Alquileres/5
         
         [HttpPut("{id}")]
-        public  IActionResult PutAlquiler(int id, [FromBody]Alquiler alquiler)
+        public  IActionResult PutAlquiler([FromBody]Alquiler alquiler, int id)
         {
-            if (id != alquiler.Id)
+            var busqueda = context.Alquiler.Find(id);
+            if (busqueda == null)
             {
                 return BadRequest();
             }
-
+            //pelicula = context.Pelicula.Find(peli);
+            
+            //alquiler.Peliculas.Add(pelicula);
+            //alquiler.Peliculas.Add(pelicula);
             //_context.Entry(alquiler).State = EntityState.Modified;
             context.Alquiler.Update(alquiler);
 
@@ -99,9 +103,10 @@ namespace Challenge17ApiPeliculas.Controllers
         public  ActionResult<Alquiler> PostAlquiler([FromBody]Alquiler alquiler,[FromQuery]int idpelicula)
         {
             var pelicula = context.Pelicula.Find(idpelicula);
-            List<Pelicula> list = new List<Pelicula>();
-            list.Add(pelicula);
-            alquiler.Peliculas = list;
+
+            //List<Pelicula> list = new List<Pelicula>();
+            //list.Add(pelicula);
+            alquiler.Peliculas.Add(pelicula);
             context.Alquiler.Add(alquiler);
             context.Alquiler.Save();
 

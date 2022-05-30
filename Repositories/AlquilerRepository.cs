@@ -39,8 +39,7 @@ namespace Challenge17ApiPeliculas.Repositories
 
         public void InsertAlquiler(Alquiler alquiler_)
         {
-
-            
+          
             Add(alquiler_);
         }
 
@@ -70,5 +69,6 @@ namespace Challenge17ApiPeliculas.Repositories
         }
 
         
+
     }
 }

@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Challenge17ApiPeliculas</name>
+    </assembly>
+    <members>
+        <member name="M:Challenge17ApiPeliculas.Controllers.PeliculasController.GetPelicula(System.Int32)">
+            <summary>
+            Retrieves a specific product by unique id
+            </summary>
+            <remarks>Awesomeness!</remarks>
+        </member>
+    </members>
+</doc>

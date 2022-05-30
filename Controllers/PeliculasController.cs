@@ -8,9 +8,11 @@ using Microsoft.EntityFrameworkCore;
 using Challenge17ApiPeliculas.Data;
 using Challenge17ApiPeliculas.Models;
 using Challenge17ApiPeliculas.Interfaces;
+using Swashbuckle.AspNetCore.Annotations;
 
 namespace Challenge17ApiPeliculas.Controllers
 {
+    [SwaggerTag("Peliculas")]
     [Route("api/[controller]")]
     [ApiController]
     public class PeliculasController : ControllerBase
@@ -31,6 +33,10 @@ namespace Challenge17ApiPeliculas.Controllers
         }
 
         // GET: api/Peliculas/5
+        /// <summary>
+        /// Retrieves a specific product by unique id
+        /// </summary>
+        /// <remarks>Awesomeness!</remarks>
         [HttpGet("{id}")]
         public  ActionResult<Pelicula> GetPelicula(int id)
         {
