@@ -14,6 +14,7 @@ using Microsoft.OpenApi.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace Challenge17ApiPeliculas
@@ -34,6 +35,8 @@ namespace Challenge17ApiPeliculas
                 options.UseSqlServer(
                     Configuration.GetConnectionString("MiConexion")));
             services.AddScoped<IUnitOfWork, UnitOfWork>();
+            
+            services.AddControllers().AddNewtonsoftJson(opt => opt.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {

@@ -13,6 +13,6 @@ namespace Challenge17ApiPeliculas.Models
         public int PeliculaId { get; set; }
         public DateTime Fecha { get; set; }
         public int Precio { get; set; }
-        public IEnumerable<Pelicula>? Peliculas { get; set; }
+        public IEnumerable<Pelicula> Peliculas { get; set; }
     }
 }

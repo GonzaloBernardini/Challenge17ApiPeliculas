@@ -10,5 +10,9 @@ namespace Challenge17ApiPeliculas.Interfaces
     {
         IEnumerable<Alquiler> GetPeliculasYAlquiler();
         Alquiler GetAlquileryPelicula(int id);
+
+        IEnumerable<Alquiler> GetTodosAlquiler();
+
+        
     }
 }

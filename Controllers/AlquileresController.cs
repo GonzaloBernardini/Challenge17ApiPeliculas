@@ -24,15 +24,23 @@ namespace Challenge17ApiPeliculas.Controllers
 
         // GET: api/Alquileres
         [HttpGet]
+        [ProducesResponseType(200, Type = typeof(IEnumerable<Alquiler>))]
         public  ActionResult<IEnumerable<Alquiler>> GetAlquileres()
         {
-            var alquiler = context.Alquiler.GetPeliculasYAlquiler().ToList();
+
+            var alquiler = context.Alquiler.GetTodosAlquiler();
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
             return Ok(alquiler);
             
         }
 
         // GET: api/Alquileres/5
         [HttpGet("{id}")]
+        [ProducesResponseType(200, Type = typeof(Alquiler))]
+        [ProducesResponseType(400)]
         public  ActionResult<Alquiler> GetAlquiler(int id)
         {
             var alquiler =  context.Alquiler.GetAlquileryPelicula(id);
@@ -41,8 +49,12 @@ namespace Challenge17ApiPeliculas.Controllers
             {
                 return NotFound();
             }
-
-            return alquiler;
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            
+            return Ok(alquiler);
         }
 
         // PUT: api/Alquileres/5
@@ -80,13 +92,21 @@ namespace Challenge17ApiPeliculas.Controllers
 
         // POST: api/Alquileres
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPost]
-        public  ActionResult<Alquiler> PostAlquiler([FromBody]Alquiler alquiler)
-        {
-            context.Alquiler.Add(alquiler);
-             context.Alquiler.Save();
 
-            return CreatedAtAction("GetAlquiler", new { id = alquiler.Id }, alquiler);
+        [HttpPost]
+        [ProducesResponseType(204)]
+        [ProducesResponseType(400)]
+        public  ActionResult<Alquiler> PostAlquiler([FromBody]Alquiler alquiler,[FromQuery]int idpelicula)
+        {
+            var pelicula = context.Pelicula.Find(idpelicula);
+            List<Pelicula> list = new List<Pelicula>();
+            list.Add(pelicula);
+            alquiler.Peliculas = list;
+            context.Alquiler.Add(alquiler);
+            context.Alquiler.Save();
+
+            //CreatedAtAction("GetAlquiler", new { id = alquiler.Id }, alquiler);
+            return Ok("Creado un Alquiler satisfactoriamente!");
         }
 
         // DELETE: api/Alquileres/5

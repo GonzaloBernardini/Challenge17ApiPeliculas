@@ -39,19 +39,22 @@ namespace Challenge17ApiPeliculas.Repositories
 
         public void InsertAlquiler(Alquiler alquiler_)
         {
+
+            
             Add(alquiler_);
         }
 
         public Alquiler GetAlquileryPelicula(int id)
         {
-            var consulta = _context.Alquileres.Where(x => x.Id == id).Include(x => x.Peliculas).FirstOrDefault();
+            var consulta = _context.Alquileres.Where(x => x.Id == id).Where(x=>x.PeliculaId == id).Include(x => x.Peliculas).FirstOrDefault();
             return consulta;
         }
 
         public IEnumerable<Alquiler> GetPeliculasYAlquiler()
         {
-            
+
             var consulta = _context.Alquileres.Include(x => x.Peliculas).ToList();
+            
             return consulta;
         }
 
@@ -59,5 +62,13 @@ namespace Challenge17ApiPeliculas.Repositories
         {
             Save();
         }
+        public IEnumerable<Alquiler> GetTodosAlquiler()
+        {
+            //lista = _dbcontext.Productos.Include(c => c.oCategoria).ToList();
+            var consulta = _context.Alquileres.Include(x => x.Peliculas).ToList();
+            return consulta;
+        }
+
+        
     }
 }

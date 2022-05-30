@@ -81,7 +81,7 @@ namespace Challenge17ApiPeliculas.Controllers
         public  ActionResult<Pelicula> PostPelicula([FromBody]Pelicula pelicula)
         {
             context.Pelicula.Add(pelicula);
-             context.Pelicula.Save();
+            context.Pelicula.Save();
 
             return CreatedAtAction("GetPelicula", new { id = pelicula.Id }, pelicula);
         }
