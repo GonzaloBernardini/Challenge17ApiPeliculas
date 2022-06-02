@@ -8,21 +8,26 @@ using Microsoft.EntityFrameworkCore;
 using Challenge17ApiPeliculas.Data;
 using Challenge17ApiPeliculas.Models;
 using Challenge17ApiPeliculas.Interfaces;
+using Swashbuckle.AspNetCore.Annotations;
 
 namespace Challenge17ApiPeliculas.Controllers
 {
+    [SwaggerTag("Api de Peliculas")]
     [Route("api/[controller]")]
     [ApiController]
     public class AlquileresController : ControllerBase
     {
-        //private readonly ApiPeliculasContext _context;
+        
         private readonly IUnitOfWork context;
         public AlquileresController(IUnitOfWork context)
         {
             this.context = context;
         }
 
-        // GET: api/Alquileres
+        // GET: api/Alquileres        
+        /// <summary>
+        /// Obtenemos un listado de todos los Alquileres con sus respectivas peliculas
+        /// </summary>        
         [HttpGet]
         [ProducesResponseType(200, Type = typeof(IEnumerable<Alquiler>))]
         public  ActionResult<IEnumerable<Alquiler>> GetAlquileres()
@@ -37,10 +42,14 @@ namespace Challenge17ApiPeliculas.Controllers
             
         }
 
-        // GET: api/Alquileres/5
+        // GET: api/Alquileres/5        
+        /// <summary>
+        /// Obtenemos un Alquiler especifico por su Id
+        /// </summary>
+        
         [HttpGet("{id}")]
         [ProducesResponseType(200, Type = typeof(Alquiler))]
-        [ProducesResponseType(400)]
+        [ProducesResponseType(404)]
         public  ActionResult<Alquiler> GetAlquiler(int id)
         {
             var alquiler =  context.Alquiler.GetAlquileryPelicula(id);
@@ -57,9 +66,14 @@ namespace Challenge17ApiPeliculas.Controllers
             return Ok(alquiler);
         }
 
-        // PUT: api/Alquileres/5
-        
+        // PUT: api/Alquileres/5        
+        /// <summary>
+        /// Nos permite actualizar un alquiler por su ID
+        /// </summary>
+        /// <remarks>Para actualizar especificar el Id del alquiler</remarks>
         [HttpPut("{id}")]
+        [ProducesResponseType(404)]
+        [ProducesResponseType(400)]
         public  IActionResult PutAlquiler([FromBody]Alquiler alquiler, int id)
         {
             var busqueda = context.Alquiler.Find(id);
@@ -67,11 +81,7 @@ namespace Challenge17ApiPeliculas.Controllers
             {
                 return BadRequest();
             }
-            //pelicula = context.Pelicula.Find(peli);
             
-            //alquiler.Peliculas.Add(pelicula);
-            //alquiler.Peliculas.Add(pelicula);
-            //_context.Entry(alquiler).State = EntityState.Modified;
             context.Alquiler.Update(alquiler);
 
             try
@@ -94,27 +104,33 @@ namespace Challenge17ApiPeliculas.Controllers
             return NoContent();
         }
 
-        // POST: api/Alquileres
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-
+        // POST: api/Alquileres        
+        /// <summary>
+        /// Nos permite crear un nuevo alquiler
+        /// </summary>
+        /// <remarks>Para crearlo debemos especificar un ID de la pelicula a asignar</remarks>
         [HttpPost]
-        [ProducesResponseType(204)]
+        
+        [ProducesResponseType(201)]
         [ProducesResponseType(400)]
         public  ActionResult<Alquiler> PostAlquiler([FromBody]Alquiler alquiler,[FromQuery]int idpelicula)
         {
             var pelicula = context.Pelicula.Find(idpelicula);
 
-            //List<Pelicula> list = new List<Pelicula>();
-            //list.Add(pelicula);
+            
             alquiler.Peliculas.Add(pelicula);
             context.Alquiler.Add(alquiler);
             context.Alquiler.Save();
 
+            //devuelve http response201 , usarlo solo si es asincronico
             //CreatedAtAction("GetAlquiler", new { id = alquiler.Id }, alquiler);
             return Ok("Creado un Alquiler satisfactoriamente!");
         }
 
         // DELETE: api/Alquileres/5
+        /// <summary>
+        /// Nos permite Borrar un unico alquiler por su ID
+        /// </summary>
         [HttpDelete("{id}")]
         public  IActionResult DeleteAlquiler(int id)
         {

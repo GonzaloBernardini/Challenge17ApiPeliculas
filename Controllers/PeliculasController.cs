@@ -12,7 +12,7 @@ using Swashbuckle.AspNetCore.Annotations;
 
 namespace Challenge17ApiPeliculas.Controllers
 {
-    [SwaggerTag("Peliculas")]
+    [SwaggerTag("Api de Peliculas")]
     [Route("api/[controller]")]
     [ApiController]
     public class PeliculasController : ControllerBase
@@ -26,6 +26,10 @@ namespace Challenge17ApiPeliculas.Controllers
         }
 
         // GET: api/Peliculas
+        /// <summary>
+        /// Este metodo nos devuelve todas las peliculas
+        /// </summary>
+        /// <remarks>Devuelve una lista de peliculas</remarks>
         [HttpGet]
         public  ActionResult<IEnumerable<Pelicula>> GetPeliculas()
         {
@@ -34,9 +38,9 @@ namespace Challenge17ApiPeliculas.Controllers
 
         // GET: api/Peliculas/5
         /// <summary>
-        /// Retrieves a specific product by unique id
+        /// Devuelve una unica pelicula especificando su ID
         /// </summary>
-        /// <remarks>Awesomeness!</remarks>
+        /// <remarks>Requiere saber el Id de la pelicula</remarks>
         [HttpGet("{id}")]
         public  ActionResult<Pelicula> GetPelicula(int id)
         {
@@ -51,7 +55,11 @@ namespace Challenge17ApiPeliculas.Controllers
         }
 
         // PUT: api/Peliculas/5
-        
+        /// <summary>
+        /// Permite modificar una pelicula especifica por su ID
+        /// </summary>
+        /// <remarks>Requiere un Id de pelicula para funcionar</remarks>
+
         [HttpPut("{id}")]
         public  IActionResult PutPelicula(int id,[FromBody] Pelicula pelicula)
         {
@@ -82,7 +90,10 @@ namespace Challenge17ApiPeliculas.Controllers
         }
 
         // POST: api/Peliculas
-        
+        /// <summary>
+        /// Nos permite crear una nueva pelicula
+        /// </summary>
+        /// <remarks>Creamos pelicula.</remarks>
         [HttpPost]
         public  ActionResult<Pelicula> PostPelicula([FromBody]Pelicula pelicula)
         {
@@ -93,6 +104,10 @@ namespace Challenge17ApiPeliculas.Controllers
         }
 
         // DELETE: api/Peliculas/5
+        /// <summary>
+        /// Nos permite Borrar una unica pelicula
+        /// </summary>
+        
         [HttpDelete("{id}")]
         public  IActionResult DeletePelicula(int id)
         {
