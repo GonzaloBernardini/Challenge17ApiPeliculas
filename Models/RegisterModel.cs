@@ -8,10 +8,10 @@ namespace Challenge17ApiPeliculas.Models
 {
     public class RegisterModel
     {
-        [Required(ErrorMessage = "Debe ingresar un nombre de usuario")]
+        [Required(ErrorMessage = "El nombre de usuario es requerido")]
         public string UserName { get; set; }
+        [Required(ErrorMessage = "El email es requerido")]
         [EmailAddress]
-        [Required(ErrorMessage = "El email es obligatorio")]
         public string Email { get; set; }
         [Required(ErrorMessage = "La contraseña es requerida")]
         public string Password { get; set; }

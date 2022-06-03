@@ -9,9 +9,12 @@ using Challenge17ApiPeliculas.Data;
 using Challenge17ApiPeliculas.Models;
 using Challenge17ApiPeliculas.Interfaces;
 using Swashbuckle.AspNetCore.Annotations;
+using Microsoft.AspNetCore.Authorization;
+using Challenge17ApiPeliculas.IdentityAuth;
 
 namespace Challenge17ApiPeliculas.Controllers
 {
+    [Authorize(AuthenticationSchemes = "Bearer")]
     [SwaggerTag("Api de Peliculas")]
     [Route("api/[controller]")]
     [ApiController]

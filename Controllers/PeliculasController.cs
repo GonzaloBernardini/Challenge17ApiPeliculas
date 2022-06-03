@@ -9,9 +9,11 @@ using Challenge17ApiPeliculas.Data;
 using Challenge17ApiPeliculas.Models;
 using Challenge17ApiPeliculas.Interfaces;
 using Swashbuckle.AspNetCore.Annotations;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Challenge17ApiPeliculas.Controllers
 {
+    [Authorize]
     [SwaggerTag("Api de Peliculas")]
     [Route("api/[controller]")]
     [ApiController]
@@ -31,6 +33,7 @@ namespace Challenge17ApiPeliculas.Controllers
         /// </summary>
         /// <remarks>Devuelve una lista de peliculas</remarks>
         [HttpGet]
+        [ProducesResponseType(401)]
         public  ActionResult<IEnumerable<Pelicula>> GetPeliculas()
         {
             return context.Pelicula.GetAll().ToList();

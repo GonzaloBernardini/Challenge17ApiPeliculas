@@ -8,9 +8,9 @@ namespace Challenge17ApiPeliculas.Models
 {
     public class LoginModel
     {
-        [Required(ErrorMessage = "El nombre de usuario es requerido")]
+        [Required(ErrorMessage ="Se requiere un usuario")]
         public string UserName { get; set; }
-        [Required(ErrorMessage = "La contraseña es requerida")]
+        [Required(ErrorMessage ="Se requiere una contraseña")]
         public string Password { get; set; }
     }
 }
