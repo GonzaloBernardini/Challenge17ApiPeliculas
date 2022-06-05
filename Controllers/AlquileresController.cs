@@ -14,7 +14,7 @@ using Challenge17ApiPeliculas.IdentityAuth;
 
 namespace Challenge17ApiPeliculas.Controllers
 {
-    [Authorize(AuthenticationSchemes = "Bearer")]
+    [Authorize]
     [SwaggerTag("Api de Peliculas")]
     [Route("api/[controller]")]
     [ApiController]
@@ -30,7 +30,8 @@ namespace Challenge17ApiPeliculas.Controllers
         // GET: api/Alquileres        
         /// <summary>
         /// Obtenemos un listado de todos los Alquileres con sus respectivas peliculas
-        /// </summary>        
+        /// </summary>
+        
         [HttpGet]
         [ProducesResponseType(200, Type = typeof(IEnumerable<Alquiler>))]
         public  ActionResult<IEnumerable<Alquiler>> GetAlquileres()
@@ -55,7 +56,8 @@ namespace Challenge17ApiPeliculas.Controllers
         [ProducesResponseType(404)]
         public  ActionResult<Alquiler> GetAlquiler(int id)
         {
-            var alquiler =  context.Alquiler.GetAlquileryPelicula(id);
+            var alquiler = context.Alquiler.AlquilerPorIdConPelicula(id);
+            
 
             if (alquiler == null)
             {

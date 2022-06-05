@@ -38,6 +38,7 @@ namespace Challenge17ApiPeliculas.Controllers
             if (userExists != null)
                 return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "El usuario ya existe!" });
 
+            //Si no existe creo un nuevo usuario
             ApplicationUser user = new ApplicationUser()
             {
                 Email = model.Email,
@@ -45,10 +46,13 @@ namespace Challenge17ApiPeliculas.Controllers
                 UserName = model.UserName
             };
 
+            //Entro en el administrador de usuarios y lo creo, enviandole el password
             var result = await userManager.CreateAsync(user, model.Password);
-            if (!result.Succeeded)
+
+            if (!result.Succeeded)//Si falla la creacion por algun motivo , muestro el error interno
                 return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "Fallo la creacion de usuario! Porfavor vea los detalles de usuario y vuelva a intentarlo" });
 
+            //Si salio todo bien muestro el status y el mensaje todo bien
             return Ok(new Response { Status = "Success", Message = "Usuario creado satisfactoriamente!" });
 
         }
@@ -61,7 +65,7 @@ namespace Challenge17ApiPeliculas.Controllers
         {
             var userExists = await userManager.FindByNameAsync(model.UserName);
             if (userExists != null)
-                return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "User already exists!" });
+                return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "Este usuario ya existe!" });
 
             ApplicationUser user = new ApplicationUser()
             {
@@ -72,20 +76,22 @@ namespace Challenge17ApiPeliculas.Controllers
 
             var result = await userManager.CreateAsync(user, model.Password);
             if (!result.Succeeded)
-                return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "User creation failed! Please check user details and try again." });
+                return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "Fallo la creacion de usuario! Porfavor vea los detalles de usuario y vuelva a intentarlo" });
 
-
+            //Comprobacion de roles:
+            //Si no esta creado ese rol , que lo cree
             if (!await roleManager.RoleExistsAsync(UserRoles.Admin))
                 await roleManager.CreateAsync(new IdentityRole(UserRoles.Admin));
+            //Si no esta creado ese rol , que lo cree
             if (!await roleManager.RoleExistsAsync(UserRoles.User))
                 await roleManager.CreateAsync(new IdentityRole(UserRoles.User));
-
+            //Si existe el rol admin, entonces le asigno ese rol al usuario en este metodo.
             if (await roleManager.RoleExistsAsync(UserRoles.Admin))
             {
                 await userManager.AddToRoleAsync(user, UserRoles.Admin);
             }
-
-            return Ok(new Response { Status = "Success", Message = "User created successfully!" });
+            //Retorno nueva respuesta
+            return Ok(new Response { Status = "Success", Message = "Usuario Administrador creado satisfactoriamente!" });
 
 
 
@@ -96,38 +102,46 @@ namespace Challenge17ApiPeliculas.Controllers
         [Route("login")]
         public async Task<IActionResult> Login([FromBody] LoginModel model)
         {
+            //le digo al adm de usuarios que busque el usuario por nombre.
             var user = await userManager.FindByNameAsync(model.UserName);
+            //Si el usuario es nulo y el password es correcto entonces : 
             if (user != null && await userManager.CheckPasswordAsync(user, model.Password))
             {
+                //Obtengo el rol del usuario
                 var userRoles = await userManager.GetRolesAsync(user);
 
+                //Con el claim obtengo la informacion de ese usuario:
                 var authClaims = new List<Claim>
                 {
+                    //Inicializo una nueva instancia de claim especificando una clave, y el valor
                 new Claim(ClaimTypes.Name, user.UserName),
+
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
                 };
-
+                //Recorro la lista de roles buscada anteriormente
                 foreach (var userRole in userRoles)
                 {
+                    //En la lista de informacion anterior agrego una nueva instancia de tipo rol asignandole el rol del usuario.
                     authClaims.Add(new Claim(ClaimTypes.Role, userRole));
                 }
-
+                //Obtengo la clave secreta encriptada
                 var authSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]));
 
                 var token = new JwtSecurityToken(
-                issuer: _configuration["Jwt:ValidIssuer"],
-                audience: _configuration["Jwt:ValidAudience"],
-                expires: DateTime.Now.AddHours(3),
-                claims: authClaims,
+                issuer: _configuration["Jwt:ValidIssuer"],//Issuer:Emisor del Token
+                audience: _configuration["Jwt:ValidAudience"],//Audience:Localhost donde se va a usar
+                expires: DateTime.Now.AddMinutes(15),
+                claims: authClaims,//Informacion del usuario
                 signingCredentials: new SigningCredentials(authSigningKey, SecurityAlgorithms.HmacSha256)
                 );
-
+                //Si todo va bien retorno un status 200  y el nuevo token con su expiracion.
                 return Ok(new
                 {
                     token = new JwtSecurityTokenHandler().WriteToken(token),
                     expiration = token.ValidTo
                 });
             }
+            //Caso contrario a todo lo anterior retorno no autorizado 401.
             return Unauthorized();
         }
     }

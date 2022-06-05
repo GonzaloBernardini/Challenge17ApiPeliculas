@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Challenge17ApiPeliculas.Validation;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -12,6 +13,7 @@ namespace Challenge17ApiPeliculas.Models
         public string UserName { get; set; }
         [Required(ErrorMessage = "El email es requerido")]
         [EmailAddress]
+        [EmailEspecifico("@yopmail.com")]
         public string Email { get; set; }
         [Required(ErrorMessage = "La contraseña es requerida")]
         public string Password { get; set; }

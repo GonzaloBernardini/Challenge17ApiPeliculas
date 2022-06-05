@@ -13,7 +13,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace Challenge17ApiPeliculas.Controllers
 {
-    [Authorize]
+    
     [SwaggerTag("Api de Peliculas")]
     [Route("api/[controller]")]
     [ApiController]
@@ -32,8 +32,10 @@ namespace Challenge17ApiPeliculas.Controllers
         /// Este metodo nos devuelve todas las peliculas
         /// </summary>
         /// <remarks>Devuelve una lista de peliculas</remarks>
+        
         [HttpGet]
         [ProducesResponseType(401)]
+        [ProducesResponseType(200)]
         public  ActionResult<IEnumerable<Pelicula>> GetPeliculas()
         {
             return context.Pelicula.GetAll().ToList();
@@ -44,10 +46,11 @@ namespace Challenge17ApiPeliculas.Controllers
         /// Devuelve una unica pelicula especificando su ID
         /// </summary>
         /// <remarks>Requiere saber el Id de la pelicula</remarks>
+        [AllowAnonymous]
         [HttpGet("{id}")]
         public  ActionResult<Pelicula> GetPelicula(int id)
         {
-            var pelicula =  context.Pelicula.GetAlquileryPelicula(id);
+            var pelicula =  context.Pelicula.Find(id);
 
             if (pelicula == null)
             {

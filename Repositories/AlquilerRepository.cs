@@ -27,7 +27,8 @@ namespace Challenge17ApiPeliculas.Repositories
         public Alquiler BuscarAlquiler(int IdAlquiler)
         {
             //probar si esta bien.
-            return _context.Alquileres.Find(IdAlquiler);
+            var consulta = _context.Alquileres.Find(IdAlquiler);
+            return consulta;
         }
 
         public List<Alquiler> GetAlquileres()
@@ -68,7 +69,10 @@ namespace Challenge17ApiPeliculas.Repositories
             return consulta;
         }
 
-        
-
+        public IEnumerable<Alquiler> AlquilerPorIdConPelicula(int IdAlquiler)
+        {
+            var consulta = _context.Alquileres.Include(x => x.Peliculas).Where(x => x.Id == IdAlquiler);
+            return consulta.ToList();
+        }
     }
 }
