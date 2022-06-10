@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.32510.428
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Challenge17ApiPeliculas", "Challenge17ApiPeliculas.csproj", "{24550F83-CD4F-4B62-8C54-60BC5A67018F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Challenge17ApiPeliculas", "Challenge17ApiPeliculas.csproj", "{24550F83-CD4F-4B62-8C54-60BC5A67018F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestVideoClubDevPlaceApi", "..\TestVideoClubDevPlaceApi\TestVideoClubDevPlaceApi.csproj", "{C8D7D676-335D-419E-8C89-F165C519FE57}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{24550F83-CD4F-4B62-8C54-60BC5A67018F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{24550F83-CD4F-4B62-8C54-60BC5A67018F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{24550F83-CD4F-4B62-8C54-60BC5A67018F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C8D7D676-335D-419E-8C89-F165C519FE57}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C8D7D676-335D-419E-8C89-F165C519FE57}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C8D7D676-335D-419E-8C89-F165C519FE57}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C8D7D676-335D-419E-8C89-F165C519FE57}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

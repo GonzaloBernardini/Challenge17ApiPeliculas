@@ -1,6 +1,8 @@
 using Challenge17ApiPeliculas.Data;
 using Challenge17ApiPeliculas.IdentityAuth;
 using Challenge17ApiPeliculas.Interfaces;
+using Challenge17ApiPeliculas.LoggerCreator;
+using Challenge17ApiPeliculas.Middlewares;
 using Challenge17ApiPeliculas.Repositories;
 using IdentityServer4.AccessTokenValidation;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -26,6 +28,8 @@ using System.Reflection;
 using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
+using Serilog;
+
 
 namespace Challenge17ApiPeliculas
 {
@@ -50,6 +54,7 @@ namespace Challenge17ApiPeliculas
                    Configuration.GetConnectionString("MiConexion")));
             //Add Uow
             services.AddScoped<IUnitOfWork, UnitOfWork>();
+            
             //Dejar el identity aqui ya que de esta  manera arreglamos el error de 404 en los controladores con authorize!!
             services.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFrameworkStores<ApplicationDbContext>().AddDefaultTokenProviders();
 
@@ -57,7 +62,7 @@ namespace Challenge17ApiPeliculas
 
             services.AddControllers().AddNewtonsoftJson(opt => opt.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
             services.AddControllers();
-
+            
             services.AddAuthentication(cfg =>
             {
                 
@@ -85,7 +90,10 @@ namespace Challenge17ApiPeliculas
             //Adicion de swagger
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Challenge17ApiPeliculas", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Video Club DevPlace Api", Version = "v1" ,
+                Contact = new OpenApiContact { Name = "Gonzalo Bernardini",
+                Email = "gbernardini58@gmail.com"}
+                });
                 var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
                 var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
                 c.IncludeXmlComments(xmlPath);
@@ -128,23 +136,32 @@ namespace Challenge17ApiPeliculas
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            
+            app.UseMiddleware<LoggerMiddleware>();
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Challenge17ApiPeliculas v1"));
+                app.UseSwaggerUI(c => {
+
+                    c.SwaggerEndpoint("/swagger/v1/swagger.json", "Challenge17ApiPeliculas v1");
+                    c.DocumentTitle = "Video Club DevPlace Api";
+
+                });
             }
 
             app.UseHttpsRedirection();
-
+            app.UseSerilogRequestLogging();
             app.UseRouting();
             app.UseAuthentication();
             app.UseAuthorization();
+            
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
             });
+
         }
     }
 }

@@ -1,9 +1,12 @@
 ﻿using Challenge17ApiPeliculas.IdentityAuth;
+using Challenge17ApiPeliculas.LoggerCreator;
 using Challenge17ApiPeliculas.Models;
+using Challenge17ApiPeliculas.Validation;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;
@@ -22,12 +25,16 @@ namespace Challenge17ApiPeliculas.Controllers
         private readonly UserManager<ApplicationUser> userManager;
         private readonly RoleManager<IdentityRole> roleManager;
         private readonly IConfiguration _configuration;
-
-        public AuthenticateController(UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager, IConfiguration configuration)
+        private readonly ILogger<AuthenticateController> _logger;
+        
+        public AuthenticateController(UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager, IConfiguration configuration,ILogger<AuthenticateController> logger)
         {
+           
             this.userManager = userManager;
             this.roleManager = roleManager;
             _configuration = configuration;
+            _logger = logger;
+            _logger.LogDebug(1, "log inyectado en el controlador de autenticacion");
         }
 
         [HttpPost]
@@ -51,15 +58,16 @@ namespace Challenge17ApiPeliculas.Controllers
 
             if (!result.Succeeded)//Si falla la creacion por algun motivo , muestro el error interno
                 return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "Fallo la creacion de usuario! Porfavor vea los detalles de usuario y vuelva a intentarlo" });
-
+            
+            _logger.LogInformation("Se ha registrado un nuevo usuario",DateTime.UtcNow);
             //Si salio todo bien muestro el status y el mensaje todo bien
             return Ok(new Response { Status = "Success", Message = "Usuario creado satisfactoriamente!" });
 
+            
         }
 
-
-
         [HttpPost]
+        [EmailEspecifico("@yopmail")]
         [Route("register-admin")]
         public async Task<IActionResult> RegisterAdmin([FromBody] RegisterModel model)
         {
@@ -90,12 +98,51 @@ namespace Challenge17ApiPeliculas.Controllers
             {
                 await userManager.AddToRoleAsync(user, UserRoles.Admin);
             }
+
+            _logger.LogInformation("Se ha registrado un nuevo usuario de tipo administrador", DateTime.UtcNow);
             //Retorno nueva respuesta
             return Ok(new Response { Status = "Success", Message = "Usuario Administrador creado satisfactoriamente!" });
 
 
 
 
+        }
+
+        [HttpPost]
+        [EmailEspecifico("@yopmail")]
+        [Route("register-freeuser")]
+        public async Task<IActionResult> RegisterFreeUser([FromBody] RegisterModel model)
+        {
+            var userExists = await userManager.FindByNameAsync(model.UserName);
+            if (userExists != null)
+                return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "Este usuario ya existe!" });
+
+            ApplicationUser user = new ApplicationUser()
+            {
+                Email = model.Email,
+                SecurityStamp = Guid.NewGuid().ToString(),
+                UserName = model.UserName
+            };
+
+            var result = await userManager.CreateAsync(user, model.Password);
+            if (!result.Succeeded)
+                return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "Fallo la creacion de usuario! Porfavor vea los detalles de usuario y vuelva a intentarlo" });
+
+            //Comprobacion de roles:
+            //Si no esta creado ese rol , que lo cree
+            if (!await roleManager.RoleExistsAsync(UserRoles.FreeUser))
+                await roleManager.CreateAsync(new IdentityRole(UserRoles.FreeUser));
+            ////Si no esta creado ese rol , que lo cree
+            //if (!await roleManager.RoleExistsAsync(UserRoles.FreeUser))
+            //    await roleManager.CreateAsync(new IdentityRole(UserRoles.FreeUser));
+            //Si existe el rol admin, entonces le asigno ese rol al usuario en este metodo.
+            if (await roleManager.RoleExistsAsync(UserRoles.FreeUser))
+            {
+                await userManager.AddToRoleAsync(user, UserRoles.FreeUser);
+            }
+            _logger.LogInformation("Se ha registrado un nuevo usuario de tipo gratuito {time}", DateTime.UtcNow);
+            //Retorno nueva respuesta
+            return Ok(new Response { Status = "Success", Message = "Usuario Gratuito creado satisfactoriamente!" });    
         }
 
         [HttpPost]
@@ -135,11 +182,14 @@ namespace Challenge17ApiPeliculas.Controllers
                 signingCredentials: new SigningCredentials(authSigningKey, SecurityAlgorithms.HmacSha256)
                 );
                 //Si todo va bien retorno un status 200  y el nuevo token con su expiracion.
+               
+                _logger.LogInformation("Se ha logeado un usuario {time}", DateTime.UtcNow);
                 return Ok(new
                 {
                     token = new JwtSecurityTokenHandler().WriteToken(token),
                     expiration = token.ValidTo
                 });
+                
             }
             //Caso contrario a todo lo anterior retorno no autorizado 401.
             return Unauthorized();

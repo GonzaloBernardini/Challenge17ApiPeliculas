@@ -34,11 +34,12 @@ namespace Challenge17ApiPeliculas.Controllers
         /// <remarks>Devuelve una lista de peliculas</remarks>
         
         [HttpGet]
+        [Authorize(Roles ="FreeUser")]
         [ProducesResponseType(401)]
         [ProducesResponseType(200)]
-        public  ActionResult<IEnumerable<Pelicula>> GetPeliculas()
+        public ActionResult<IEnumerable<Pelicula>> GetPeliculas()
         {
-            return context.Pelicula.GetAll().ToList();
+            return Ok(context.Pelicula.GetAll().ToList());
         }
 
         // GET: api/Peliculas/5

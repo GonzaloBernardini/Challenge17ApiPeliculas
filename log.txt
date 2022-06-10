@@ -1,0 +1,93 @@
+06/10/2022 17:41:43 Iniciando la aplicacion
+06/10/2022 17:42:05 Se ha logeado un usuario 06/10/2022 20:42:05
+06/10/2022 17:42:06 HTTP "POST" "/api/Authenticate/login" responded 200 in 2430.3126 ms
+06/10/2022 17:45:39 Iniciando la aplicacion
+06/10/2022 17:45:42 Request "GET" "/swagger/index.html" => 200
+06/10/2022 17:45:43 Request "GET" "/swagger/v1/swagger.json" => 200
+06/10/2022 17:46:06 Se ha logeado un usuario 06/10/2022 20:46:06
+06/10/2022 17:46:06 HTTP "POST" "/api/Authenticate/login" responded 200 in 2567.9135 ms
+06/10/2022 17:46:06 Request "POST" "/api/Authenticate/login" => 200
+06/10/2022 17:50:51 Iniciando la aplicacion
+06/10/2022 17:50:55 "System.Security.Claims.ClaimsPrincipal"
+06/10/2022 17:50:56 "System.Security.Claims.ClaimsPrincipal"
+06/10/2022 17:51:17 Se ha logeado un usuario 06/10/2022 20:51:17
+06/10/2022 17:51:17 HTTP "POST" "/api/Authenticate/login" responded 200 in 2323.3070 ms
+06/10/2022 17:51:17 "System.Security.Claims.ClaimsPrincipal"
+06/10/2022 17:52:17 Iniciando la aplicacion
+06/10/2022 17:52:21 "System.Security.Claims.ClaimsIdentity"
+06/10/2022 17:52:21 "System.Security.Claims.ClaimsIdentity"
+06/10/2022 17:52:37 Se ha logeado un usuario 06/10/2022 20:52:37
+06/10/2022 17:52:37 HTTP "POST" "/api/Authenticate/login" responded 200 in 2323.7546 ms
+06/10/2022 17:52:37 "System.Security.Claims.ClaimsIdentity"
+06/10/2022 17:53:07 Iniciando la aplicacion
+06/10/2022 17:53:10 null
+06/10/2022 17:53:10 null
+06/10/2022 17:53:26 Se ha logeado un usuario 06/10/2022 20:53:26
+06/10/2022 17:53:27 HTTP "POST" "/api/Authenticate/login" responded 200 in 2373.1912 ms
+06/10/2022 17:53:27 null
+06/10/2022 17:53:42 Iniciando la aplicacion
+06/10/2022 17:53:45 null
+06/10/2022 17:53:46 null
+06/10/2022 17:54:04 Se ha logeado un usuario 06/10/2022 20:54:04
+06/10/2022 17:54:04 HTTP "POST" "/api/Authenticate/login" responded 200 in 2285.4155 ms
+06/10/2022 17:54:04 null
+06/10/2022 17:54:26 HTTP "GET" "/api/Alquileres" responded 200 in 807.8209 ms
+06/10/2022 17:54:26 "gonzalito"
+06/10/2022 17:55:44 Iniciando la aplicacion
+06/10/2022 17:55:47 Request "GET" "/swagger/index.html" => 200
+06/10/2022 17:55:48 Request "GET" "/swagger/v1/swagger.json" => 200
+06/10/2022 17:56:18 Se ha logeado un usuario 06/10/2022 20:56:18
+06/10/2022 17:56:19 HTTP "POST" "/api/Authenticate/login" responded 200 in 2305.4694 ms
+06/10/2022 17:56:19 Request "POST" "/api/Authenticate/login" => 200
+06/10/2022 17:58:25 Iniciando la aplicacion
+06/10/2022 17:58:29 Usando en logger desde el middleware
+06/10/2022 17:58:29 Usando en logger desde el middleware
+06/10/2022 17:58:54 Se ha logeado un usuario 06/10/2022 20:58:54
+06/10/2022 17:58:54 HTTP "POST" "/api/Authenticate/login" responded 200 in 2382.9025 ms
+06/10/2022 17:58:54 Usando en logger desde el middleware
+06/10/2022 18:02:17 Iniciando la aplicacion
+06/10/2022 18:02:21 User {User} logged in from {Address}
+06/10/2022 18:02:21 User {User} logged in from {Address}
+06/10/2022 18:04:36 Iniciando la aplicacion
+06/10/2022 18:04:41 Connection id ""0HMIB4JAKVQOU"", Request id ""0HMIB4JAKVQOU:00000001"": An unhandled exception was thrown by the application.
+System.InvalidOperationException: Session has not been configured for this application or request.
+   at Microsoft.AspNetCore.Http.DefaultHttpContext.get_Session()
+   at Challenge17ApiPeliculas.Middlewares.LoggerMiddleware.InvokeAsync(HttpContext context) in C:\Users\gbern\Desktop\GONZA\Programacion\AticmaDevplace\Dia13\CodeFirst\Challenge17Api\Challenge17ApiPeliculas\Middlewares\LoggerMiddleware.cs:line 34
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ProcessRequests[TContext](IHttpApplication`1 application)
+06/10/2022 18:05:49 Iniciando la aplicacion
+06/10/2022 18:05:52 User "System.Security.Claims.ClaimsPrincipal"
+06/10/2022 18:05:52 User "System.Security.Claims.ClaimsPrincipal"
+06/10/2022 18:06:07 Se ha logeado un usuario 06/10/2022 21:06:07
+06/10/2022 18:06:07 HTTP "POST" "/api/Authenticate/login" responded 200 in 2402.8277 ms
+06/10/2022 18:06:07 User "System.Security.Claims.ClaimsPrincipal"
+06/10/2022 18:06:25 HTTP "GET" "/api/Alquileres" responded 200 in 367.6320 ms
+06/10/2022 18:06:25 User "System.Security.Claims.ClaimsPrincipal"
+06/10/2022 18:07:50 Iniciando la aplicacion
+06/10/2022 18:07:54 User null
+06/10/2022 18:07:55 User null
+06/10/2022 18:08:11 Se ha logeado un usuario 06/10/2022 21:08:11
+06/10/2022 18:08:11 HTTP "POST" "/api/Authenticate/login" responded 200 in 2313.4162 ms
+06/10/2022 18:08:11 User null
+06/10/2022 18:08:39 HTTP "GET" "/api/Alquileres" responded 200 in 315.5741 ms
+06/10/2022 18:08:39 User "gonzalito"
+06/10/2022 18:25:18 Iniciando la aplicacion
+06/10/2022 18:27:47 Iniciando la aplicacion
+06/10/2022 18:28:27 Se ha logeado un usuario 06/10/2022 21:28:27
+06/10/2022 18:28:27 HTTP "POST" "/api/Authenticate/login" responded 200 in 2201.9646 ms
+06/10/2022 18:28:46 HTTP "GET" "/api/Alquileres" responded 200 in 327.0456 ms
+06/10/2022 18:28:46 User "gonzalito"
+06/10/2022 18:30:46 Iniciando la aplicacion
+06/10/2022 18:31:06 Se ha logeado un usuario 06/10/2022 21:31:06
+06/10/2022 18:31:06 HTTP "POST" "/api/Authenticate/login" responded 200 in 2310.8161 ms
+06/10/2022 18:31:24 HTTP "GET" "/api/Alquileres" responded 200 in 335.1542 ms
+06/10/2022 18:31:24 El usuario "gonzalito"  hizo una peticion con los siguientes valores => ["[action, GetAlquileres]", "[controller, Alquileres]"]
+06/10/2022 18:32:56 Iniciando la aplicacion
+06/10/2022 18:33:22 Se ha logeado un usuario 06/10/2022 21:33:22
+06/10/2022 18:33:22 HTTP "POST" "/api/Authenticate/login" responded 200 in 2328.5619 ms
+06/10/2022 18:34:47 HTTP "GET" "/api/Alquileres" responded 200 in 317.2956 ms
+06/10/2022 18:34:47 El usuario "gonzalito"  hizo una peticion con los siguientes valores => ["GetAlquileres", "Alquileres"]
+06/10/2022 18:37:09 Iniciando la aplicacion
+06/10/2022 18:37:27 Se ha logeado un usuario 06/10/2022 21:37:27
+06/10/2022 18:37:28 HTTP "POST" "/api/Authenticate/login" responded 200 in 2276.3270 ms
+06/10/2022 18:37:51 HTTP "GET" "/api/Alquileres" responded 200 in 338.1179 ms
+06/10/2022 18:37:51 El usuario "gonzalito"  hizo una peticion con los siguientes valores => "GET"

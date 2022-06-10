@@ -18,7 +18,7 @@ namespace Challenge17ApiPeliculas.Repositories
             _context = context;
         }
 
-        public void BorrarPelicula(int IdPelicula)
+        public  void BorrarPelicula(int IdPelicula)
         {
             Delete(IdPelicula);
 
