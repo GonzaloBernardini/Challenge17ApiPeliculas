@@ -1,5 +1,4 @@
 ﻿using Challenge17ApiPeliculas.IdentityAuth;
-using Challenge17ApiPeliculas.LoggerCreator;
 using Challenge17ApiPeliculas.Models;
 using Challenge17ApiPeliculas.Validation;
 using Microsoft.AspNetCore.Http;
@@ -8,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
+using Serilog;
 using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
@@ -44,7 +44,7 @@ namespace Challenge17ApiPeliculas.Controllers
             var userExists = await userManager.FindByNameAsync(model.UserName);
             if (userExists != null)
                 return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "El usuario ya existe!" });
-
+            
             //Si no existe creo un nuevo usuario
             ApplicationUser user = new ApplicationUser()
             {
@@ -182,7 +182,7 @@ namespace Challenge17ApiPeliculas.Controllers
                 signingCredentials: new SigningCredentials(authSigningKey, SecurityAlgorithms.HmacSha256)
                 );
                 //Si todo va bien retorno un status 200  y el nuevo token con su expiracion.
-               
+
                 _logger.LogInformation("Se ha logeado un usuario {time}", DateTime.UtcNow);
                 return Ok(new
                 {

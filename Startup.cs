@@ -1,7 +1,6 @@
 using Challenge17ApiPeliculas.Data;
 using Challenge17ApiPeliculas.IdentityAuth;
 using Challenge17ApiPeliculas.Interfaces;
-using Challenge17ApiPeliculas.LoggerCreator;
 using Challenge17ApiPeliculas.Middlewares;
 using Challenge17ApiPeliculas.Repositories;
 using IdentityServer4.AccessTokenValidation;
@@ -57,7 +56,7 @@ namespace Challenge17ApiPeliculas
             
             //Dejar el identity aqui ya que de esta  manera arreglamos el error de 404 en los controladores con authorize!!
             services.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFrameworkStores<ApplicationDbContext>().AddDefaultTokenProviders();
-
+            
             //Add auth
 
             services.AddControllers().AddNewtonsoftJson(opt => opt.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
@@ -149,13 +148,13 @@ namespace Challenge17ApiPeliculas
 
                 });
             }
-
+            
             app.UseHttpsRedirection();
-            app.UseSerilogRequestLogging();
+            
             app.UseRouting();
             app.UseAuthentication();
             app.UseAuthorization();
-            
+            app.UseSerilogRequestLogging();
 
             app.UseEndpoints(endpoints =>
             {

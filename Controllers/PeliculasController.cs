@@ -58,7 +58,7 @@ namespace Challenge17ApiPeliculas.Controllers
                 return NotFound();
             }
 
-            return pelicula;
+            return Ok(pelicula);
         }
 
         // PUT: api/Peliculas/5
