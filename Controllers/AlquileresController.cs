@@ -54,6 +54,7 @@ namespace Challenge17ApiPeliculas.Controllers
         [HttpGet("{id}")]
         [ProducesResponseType(200, Type = typeof(Alquiler))]
         [ProducesResponseType(404)]
+        [ProducesResponseType(400)]
         public  ActionResult<Alquiler> GetAlquiler(int id)
         {
             var alquiler = context.Alquiler.AlquilerPorIdConPelicula(id);
@@ -79,6 +80,7 @@ namespace Challenge17ApiPeliculas.Controllers
         [HttpPut("{id}")]
         [ProducesResponseType(404)]
         [ProducesResponseType(400)]
+        [ProducesResponseType(204)]
         public  IActionResult PutAlquiler([FromBody]Alquiler alquiler, int id)
         {
             var busqueda = context.Alquiler.Find(id);
@@ -137,6 +139,8 @@ namespace Challenge17ApiPeliculas.Controllers
         /// Nos permite Borrar un unico alquiler por su ID
         /// </summary>
         [HttpDelete("{id}")]
+        [ProducesResponseType(404)]
+        [ProducesResponseType(204)]
         public  IActionResult DeleteAlquiler(int id)
         {
             var alquiler =  context.Alquiler.Find(id);

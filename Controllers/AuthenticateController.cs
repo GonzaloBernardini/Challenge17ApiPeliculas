@@ -27,13 +27,13 @@ namespace Challenge17ApiPeliculas.Controllers
         private readonly IConfiguration _configuration;
         private readonly ILogger<AuthenticateController> _logger;
         
-        public AuthenticateController(UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager, IConfiguration configuration,ILogger<AuthenticateController> logger)
+        public AuthenticateController(UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager, IConfiguration configuration,ILoggerFactory logger)
         {
            
             this.userManager = userManager;
             this.roleManager = roleManager;
             _configuration = configuration;
-            _logger = logger;
+            _logger = logger.CreateLogger<AuthenticateController>();
             _logger.LogDebug(1, "log inyectado en el controlador de autenticacion");
         }
 
@@ -69,6 +69,8 @@ namespace Challenge17ApiPeliculas.Controllers
         [HttpPost]
         [EmailEspecifico("@yopmail")]
         [Route("register-admin")]
+        [ProducesResponseType(200)]
+        [ProducesResponseType(500)]
         public async Task<IActionResult> RegisterAdmin([FromBody] RegisterModel model)
         {
             var userExists = await userManager.FindByNameAsync(model.UserName);
@@ -111,6 +113,8 @@ namespace Challenge17ApiPeliculas.Controllers
         [HttpPost]
         [EmailEspecifico("@yopmail")]
         [Route("register-freeuser")]
+        [ProducesResponseType(200)]
+        [ProducesResponseType(500)]
         public async Task<IActionResult> RegisterFreeUser([FromBody] RegisterModel model)
         {
             var userExists = await userManager.FindByNameAsync(model.UserName);
@@ -147,6 +151,8 @@ namespace Challenge17ApiPeliculas.Controllers
 
         [HttpPost]
         [Route("login")]
+        [ProducesResponseType(200)]
+        [ProducesResponseType(401)]
         public async Task<IActionResult> Login([FromBody] LoginModel model)
         {
             //le digo al adm de usuarios que busque el usuario por nombre.

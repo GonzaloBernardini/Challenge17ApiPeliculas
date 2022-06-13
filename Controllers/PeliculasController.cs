@@ -49,6 +49,8 @@ namespace Challenge17ApiPeliculas.Controllers
         /// <remarks>Requiere saber el Id de la pelicula</remarks>
         [AllowAnonymous]
         [HttpGet("{id}")]
+        [ProducesResponseType(200)]
+        [ProducesResponseType(404)]
         public  ActionResult<Pelicula> GetPelicula(int id)
         {
             var pelicula =  context.Pelicula.Find(id);
@@ -68,6 +70,9 @@ namespace Challenge17ApiPeliculas.Controllers
         /// <remarks>Requiere un Id de pelicula para funcionar</remarks>
 
         [HttpPut("{id}")]
+        [ProducesResponseType(204)]
+        [ProducesResponseType(404)]
+        [ProducesResponseType(400)]
         public  IActionResult PutPelicula(int id,[FromBody] Pelicula pelicula)
         {
             if (id != pelicula.Id)
@@ -102,10 +107,20 @@ namespace Challenge17ApiPeliculas.Controllers
         /// </summary>
         /// <remarks>Creamos pelicula.</remarks>
         [HttpPost]
+        [ProducesResponseType(201)]
         public  ActionResult<Pelicula> PostPelicula([FromBody]Pelicula pelicula)
         {
-            context.Pelicula.Add(pelicula);
-            context.Pelicula.Save();
+            try
+            {
+                context.Pelicula.Add(pelicula);
+                context.Pelicula.Save();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                throw;
+            }
+            
 
             return CreatedAtAction("GetPelicula", new { id = pelicula.Id }, pelicula);
         }
@@ -116,6 +131,8 @@ namespace Challenge17ApiPeliculas.Controllers
         /// </summary>
         
         [HttpDelete("{id}")]
+        [ProducesResponseType(204)]
+        [ProducesResponseType(404)]
         public  IActionResult DeletePelicula(int id)
         {
             var pelicula =  context.Pelicula.Find(id);
