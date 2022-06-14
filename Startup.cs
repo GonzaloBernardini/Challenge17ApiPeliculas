@@ -57,18 +57,19 @@ namespace Challenge17ApiPeliculas
             //Dejar el identity aqui ya que de esta  manera arreglamos el error de 404 en los controladores con authorize!!
             services.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFrameworkStores<ApplicationDbContext>().AddDefaultTokenProviders();
             
-            //Add auth
-
+            
+            //Add Json Serializer
             services.AddControllers().AddNewtonsoftJson(opt => opt.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
             services.AddControllers();
-            
+
+            //Add auth
             services.AddAuthentication(cfg =>
             {
                 
                 cfg.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
                 cfg.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
             })
-
+                //Adicion de Bearer
                 .AddJwtBearer(options =>
                 {
                     options.SaveToken = true;
@@ -97,7 +98,7 @@ namespace Challenge17ApiPeliculas
                 var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
                 c.IncludeXmlComments(xmlPath);
 
-
+                //Added Config for Swagger Bearer Options UI
                 c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme()
                 {
                     Name = "Authorization",
@@ -135,7 +136,7 @@ namespace Challenge17ApiPeliculas
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            
+            //Custom middleware
             app.UseMiddleware<LoggerMiddleware>();
             if (env.IsDevelopment())
             {
@@ -154,6 +155,7 @@ namespace Challenge17ApiPeliculas
             app.UseRouting();
             app.UseAuthentication();
             app.UseAuthorization();
+            //Serilog request info
             app.UseSerilogRequestLogging();
 
             app.UseEndpoints(endpoints =>

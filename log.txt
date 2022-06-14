@@ -277,3 +277,555 @@ System.IO.IOException:  Received an unexpected EOF or 0 bytes from the transport
 11-Jun-2022 Connection id ""0HMIC3HTR603L"" sending FIN because: ""The client closed the connection.""
 11-Jun-2022 Connection id ""0HMIC3HTR603L"" stopped.
 11-Jun-2022 Hosting stopped
+13-Jun-2022 User profile is available. Using '"C:\Users\gbern\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest.
+13-Jun-2022 Now listening on: "https://localhost:5001"
+13-Jun-2022 Now listening on: "http://localhost:5000"
+13-Jun-2022 Application started. Press Ctrl+C to shut down.
+13-Jun-2022 Hosting environment: "Development"
+13-Jun-2022 Content root path: "C:\Users\gbern\Desktop\GONZA\Programacion\AticmaDevplace\Dia13\CodeFirst\Challenge17Api\Challenge17ApiPeliculas"
+13-Jun-2022 Request starting HTTP/2 GET https://localhost:5001/swagger/index.html - -
+13-Jun-2022 Request finished HTTP/2 GET https://localhost:5001/swagger/index.html - - - 200 - text/html;charset=utf-8 529.2904ms
+13-Jun-2022 Request starting HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json - -
+13-Jun-2022 Request finished HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 265.5005ms
+13-Jun-2022 Request starting HTTP/2 POST https://localhost:5001/api/Authenticate/login application/json-patch+json 48
+13-Jun-2022 Executing endpoint '"Challenge17ApiPeliculas.Controllers.AuthenticateController.Login (Challenge17ApiPeliculas)"'
+13-Jun-2022 Route matched with "{action = \"Login\", controller = \"Authenticate\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(Challenge17ApiPeliculas.Models.LoginModel)" on controller "Challenge17ApiPeliculas.Controllers.AuthenticateController" ("Challenge17ApiPeliculas").
+13-Jun-2022 Entity Framework Core "5.0.17" initialized '"ApplicationDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None"
+13-Jun-2022 Executed DbCommand ("551"ms) [Parameters=["@__normalizedUserName_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0"
+13-Jun-2022 Executed DbCommand ("26"ms) [Parameters=["@__userId_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0"
+13-Jun-2022 Se ha logeado un usuario 06/14/2022 02:47:42
+13-Jun-2022 Executing "OkObjectResult", writing value of type '"<>f__AnonymousType0`2[[System.String, System.Private.CoreLib, Version=5.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.DateTime, System.Private.CoreLib, Version=5.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"'.
+13-Jun-2022 Executed action "Challenge17ApiPeliculas.Controllers.AuthenticateController.Login (Challenge17ApiPeliculas)" in 4409.2364ms
+13-Jun-2022 Executed endpoint '"Challenge17ApiPeliculas.Controllers.AuthenticateController.Login (Challenge17ApiPeliculas)"'
+13-Jun-2022 HTTP "POST" "/api/Authenticate/login" responded 200 in 4495.4551 ms
+13-Jun-2022 Request finished HTTP/2 POST https://localhost:5001/api/Authenticate/login application/json-patch+json 48 - 200 492 application/json;+charset=utf-8 4893.5549ms
+13-Jun-2022 Request starting HTTP/2 POST https://localhost:5001/api/Authenticate/login application/json 48
+13-Jun-2022 Executing endpoint '"Challenge17ApiPeliculas.Controllers.AuthenticateController.Login (Challenge17ApiPeliculas)"'
+13-Jun-2022 Route matched with "{action = \"Login\", controller = \"Authenticate\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(Challenge17ApiPeliculas.Models.LoginModel)" on controller "Challenge17ApiPeliculas.Controllers.AuthenticateController" ("Challenge17ApiPeliculas").
+13-Jun-2022 Entity Framework Core "5.0.17" initialized '"ApplicationDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None"
+13-Jun-2022 Executed DbCommand ("23"ms) [Parameters=["@__normalizedUserName_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0"
+13-Jun-2022 Executed DbCommand ("8"ms) [Parameters=["@__userId_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0"
+13-Jun-2022 Se ha logeado un usuario 06/14/2022 02:48:51
+13-Jun-2022 Executing "OkObjectResult", writing value of type '"<>f__AnonymousType0`2[[System.String, System.Private.CoreLib, Version=5.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.DateTime, System.Private.CoreLib, Version=5.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"'.
+13-Jun-2022 Executed action "Challenge17ApiPeliculas.Controllers.AuthenticateController.Login (Challenge17ApiPeliculas)" in 69.6898ms
+13-Jun-2022 Executed endpoint '"Challenge17ApiPeliculas.Controllers.AuthenticateController.Login (Challenge17ApiPeliculas)"'
+13-Jun-2022 HTTP "POST" "/api/Authenticate/login" responded 200 in 73.8285 ms
+13-Jun-2022 Request finished HTTP/2 POST https://localhost:5001/api/Authenticate/login application/json 48 - 200 492 application/json;+charset=utf-8 87.2028ms
+13-Jun-2022 Request starting HTTP/2 POST https://localhost:5001/api/Authenticate/login application/json 47
+13-Jun-2022 Executing endpoint '"Challenge17ApiPeliculas.Controllers.AuthenticateController.Login (Challenge17ApiPeliculas)"'
+13-Jun-2022 Route matched with "{action = \"Login\", controller = \"Authenticate\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(Challenge17ApiPeliculas.Models.LoginModel)" on controller "Challenge17ApiPeliculas.Controllers.AuthenticateController" ("Challenge17ApiPeliculas").
+13-Jun-2022 Entity Framework Core "5.0.17" initialized '"ApplicationDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None"
+13-Jun-2022 Executed DbCommand ("1"ms) [Parameters=["@__normalizedUserName_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0"
+13-Jun-2022 Invalid password for user.
+13-Jun-2022 Executing "ObjectResult", writing value of type '"Microsoft.AspNetCore.Mvc.ProblemDetails"'.
+13-Jun-2022 Executed action "Challenge17ApiPeliculas.Controllers.AuthenticateController.Login (Challenge17ApiPeliculas)" in 53.9794ms
+13-Jun-2022 Executed endpoint '"Challenge17ApiPeliculas.Controllers.AuthenticateController.Login (Challenge17ApiPeliculas)"'
+13-Jun-2022 HTTP "POST" "/api/Authenticate/login" responded 401 in 63.2351 ms
+13-Jun-2022 Request finished HTTP/2 POST https://localhost:5001/api/Authenticate/login application/json 47 - 401 162 application/problem+json;+charset=utf-8 75.1814ms
+13-Jun-2022 User profile is available. Using '"C:\Users\gbern\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest.
+13-Jun-2022 Now listening on: "https://localhost:5001"
+13-Jun-2022 Now listening on: "http://localhost:5000"
+13-Jun-2022 Application started. Press Ctrl+C to shut down.
+13-Jun-2022 Hosting environment: "Development"
+13-Jun-2022 Content root path: "C:\Users\gbern\Desktop\GONZA\Programacion\AticmaDevplace\Dia13\CodeFirst\Challenge17Api\Challenge17ApiPeliculas"
+13-Jun-2022 Request starting HTTP/2 GET https://localhost:5001/swagger/index.html - -
+13-Jun-2022 Request finished HTTP/2 GET https://localhost:5001/swagger/index.html - - - 200 - text/html;charset=utf-8 170.4070ms
+13-Jun-2022 Request starting HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json - -
+13-Jun-2022 Request finished HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 159.4092ms
+13-Jun-2022 Request starting HTTP/2 POST https://localhost:5001/api/Authenticate/login application/json-patch+json 48
+13-Jun-2022 Executing endpoint '"Challenge17ApiPeliculas.Controllers.AuthenticateController.Login (Challenge17ApiPeliculas)"'
+13-Jun-2022 Route matched with "{action = \"Login\", controller = \"Authenticate\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(Challenge17ApiPeliculas.Models.LoginModel)" on controller "Challenge17ApiPeliculas.Controllers.AuthenticateController" ("Challenge17ApiPeliculas").
+13-Jun-2022 Entity Framework Core "5.0.17" initialized '"ApplicationDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None"
+13-Jun-2022 Executed DbCommand ("49"ms) [Parameters=["@__normalizedUserName_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0"
+13-Jun-2022 Executed DbCommand ("8"ms) [Parameters=["@__userId_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0"
+13-Jun-2022 Se ha logeado un usuario 06/14/2022 02:51:05
+13-Jun-2022 Executing "OkObjectResult", writing value of type '"<>f__AnonymousType0`2[[System.String, System.Private.CoreLib, Version=5.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.DateTime, System.Private.CoreLib, Version=5.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"'.
+13-Jun-2022 Executed action "Challenge17ApiPeliculas.Controllers.AuthenticateController.Login (Challenge17ApiPeliculas)" in 2092.4948ms
+13-Jun-2022 Executed endpoint '"Challenge17ApiPeliculas.Controllers.AuthenticateController.Login (Challenge17ApiPeliculas)"'
+13-Jun-2022 HTTP "POST" "/api/Authenticate/login" responded 200 in 2182.1786 ms
+13-Jun-2022 Request finished HTTP/2 POST https://localhost:5001/api/Authenticate/login application/json-patch+json 48 - 200 492 application/json;+charset=utf-8 2339.9738ms
+13-Jun-2022 Application is shutting down...
+13-Jun-2022 User profile is available. Using '"C:\Users\gbern\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest.
+13-Jun-2022 Now listening on: "https://localhost:5001"
+13-Jun-2022 Now listening on: "http://localhost:5000"
+13-Jun-2022 Application started. Press Ctrl+C to shut down.
+13-Jun-2022 Hosting environment: "Development"
+13-Jun-2022 Content root path: "C:\Users\gbern\Desktop\GONZA\Programacion\AticmaDevplace\Dia13\CodeFirst\Challenge17Api\Challenge17ApiPeliculas"
+13-Jun-2022 Request starting HTTP/2 GET https://localhost:5001/swagger/index.html - -
+13-Jun-2022 Request finished HTTP/2 GET https://localhost:5001/swagger/index.html - - - 200 - text/html;charset=utf-8 173.7832ms
+13-Jun-2022 Request starting HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json - -
+13-Jun-2022 Request finished HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 164.2163ms
+13-Jun-2022 Request starting HTTP/2 POST https://localhost:5001/api/Authenticate/login application/json 48
+13-Jun-2022 Executing endpoint '"Challenge17ApiPeliculas.Controllers.AuthenticateController.Login (Challenge17ApiPeliculas)"'
+13-Jun-2022 Route matched with "{action = \"Login\", controller = \"Authenticate\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(Challenge17ApiPeliculas.Models.LoginModel)" on controller "Challenge17ApiPeliculas.Controllers.AuthenticateController" ("Challenge17ApiPeliculas").
+13-Jun-2022 Entity Framework Core "5.0.17" initialized '"ApplicationDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None"
+13-Jun-2022 Executed DbCommand ("51"ms) [Parameters=["@__normalizedUserName_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0"
+13-Jun-2022 Executed DbCommand ("6"ms) [Parameters=["@__userId_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0"
+13-Jun-2022 Se ha logeado un usuario 06/14/2022 02:52:39
+13-Jun-2022 Executing "OkObjectResult", writing value of type '"<>f__AnonymousType0`2[[System.String, System.Private.CoreLib, Version=5.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.DateTime, System.Private.CoreLib, Version=5.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"'.
+13-Jun-2022 Executed action "Challenge17ApiPeliculas.Controllers.AuthenticateController.Login (Challenge17ApiPeliculas)" in 2075.4751ms
+13-Jun-2022 Executed endpoint '"Challenge17ApiPeliculas.Controllers.AuthenticateController.Login (Challenge17ApiPeliculas)"'
+13-Jun-2022 HTTP "POST" "/api/Authenticate/login" responded 200 in 2130.7718 ms
+13-Jun-2022 Request finished HTTP/2 POST https://localhost:5001/api/Authenticate/login application/json 48 - 200 492 application/json;+charset=utf-8 2274.6460ms
+13-Jun-2022 Application is shutting down...
+13-Jun-2022 Hosting starting
+13-Jun-2022 User profile is available. Using '"C:\Users\gbern\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest.
+13-Jun-2022 Reading data from file '"C:\Users\gbern\AppData\Local\ASP.NET\DataProtection-Keys\key-280a4463-17d5-4a2c-879c-6a889f1465a8.xml"'.
+13-Jun-2022 Reading data from file '"C:\Users\gbern\AppData\Local\ASP.NET\DataProtection-Keys\key-3ca7caab-b16b-453b-b0ff-af289ef57965.xml"'.
+13-Jun-2022 Found key {280a4463-17d5-4a2c-879c-6a889f1465a8}.
+13-Jun-2022 Found key {3ca7caab-b16b-453b-b0ff-af289ef57965}.
+13-Jun-2022 Considering key {3ca7caab-b16b-453b-b0ff-af289ef57965} with expiration date 2022-07-04 17:02:01Z as default key.
+13-Jun-2022 Forwarded activator type request from "Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Version=5.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60" to "Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60"
+13-Jun-2022 Decrypting secret element using Windows DPAPI.
+13-Jun-2022 Forwarded activator type request from "Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Version=5.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60" to "Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60"
+13-Jun-2022 Opening CNG algorithm '"AES"' from provider 'null' with chaining mode CBC.
+13-Jun-2022 Opening CNG algorithm '"SHA256"' from provider 'null' with HMAC.
+13-Jun-2022 Using key {3ca7caab-b16b-453b-b0ff-af289ef57965} as the default key.
+13-Jun-2022 Key ring with default key {3ca7caab-b16b-453b-b0ff-af289ef57965} was loaded during application startup.
+13-Jun-2022 Using development certificate: "CN=localhost" (Thumbprint: "57F6062A9819379EB5C1AAE66898EF05AAB06969")
+13-Jun-2022 Now listening on: "https://localhost:5001"
+13-Jun-2022 Now listening on: "http://localhost:5000"
+13-Jun-2022 Loaded hosting startup assembly "Challenge17ApiPeliculas"
+13-Jun-2022 Application started. Press Ctrl+C to shut down.
+13-Jun-2022 Hosting environment: "Development"
+13-Jun-2022 Content root path: "C:\Users\gbern\Desktop\GONZA\Programacion\AticmaDevplace\Dia13\CodeFirst\Challenge17Api\Challenge17ApiPeliculas"
+13-Jun-2022 Hosting started
+13-Jun-2022 Connection id ""0HMIDM4EJVQKV"" received FIN.
+13-Jun-2022 Connection id ""0HMIDM4EJVQKU"" received FIN.
+13-Jun-2022 Connection id ""0HMIDM4EJVQKV"" accepted.
+13-Jun-2022 Connection id ""0HMIDM4EJVQKU"" accepted.
+13-Jun-2022 Connection id ""0HMIDM4EJVQKU"" started.
+13-Jun-2022 Connection id ""0HMIDM4EJVQKV"" started.
+13-Jun-2022 Failed to authenticate HTTPS connection.
+System.IO.IOException:  Received an unexpected EOF or 0 bytes from the transport stream.
+   at System.Net.Security.SslStream.ReceiveBlobAsync[TIOAdapter](TIOAdapter adapter)
+   at System.Net.Security.SslStream.ForceAuthenticationAsync[TIOAdapter](TIOAdapter adapter, Boolean receiveFirst, Byte[] reAuthenticationData, Boolean isApm)
+   at Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionMiddleware.OnConnectionAsync(ConnectionContext context)
+13-Jun-2022 Failed to authenticate HTTPS connection.
+System.IO.IOException:  Received an unexpected EOF or 0 bytes from the transport stream.
+   at System.Net.Security.SslStream.ReceiveBlobAsync[TIOAdapter](TIOAdapter adapter)
+   at System.Net.Security.SslStream.ForceAuthenticationAsync[TIOAdapter](TIOAdapter adapter, Boolean receiveFirst, Byte[] reAuthenticationData, Boolean isApm)
+   at Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionMiddleware.OnConnectionAsync(ConnectionContext context)
+13-Jun-2022 Connection id ""0HMIDM4EJVQKU"" stopped.
+13-Jun-2022 Connection id ""0HMIDM4EJVQKV"" stopped.
+13-Jun-2022 Connection id ""0HMIDM4EJVQKU"" sending FIN because: ""The Socket transport's send loop completed gracefully.""
+13-Jun-2022 Connection id ""0HMIDM4EJVQKV"" sending FIN because: ""The Socket transport's send loop completed gracefully.""
+13-Jun-2022 Connection id ""0HMIDM4EJVQL0"" accepted.
+13-Jun-2022 Connection id ""0HMIDM4EJVQL0"" started.
+13-Jun-2022 Connection ""0HMIDM4EJVQL0"" established using the following protocol: Tls12
+13-Jun-2022 Request starting HTTP/2 GET https://localhost:5001/swagger/index.html - -
+13-Jun-2022 Wildcard detected, all requests with hosts will be allowed.
+13-Jun-2022 Request finished HTTP/2 GET https://localhost:5001/swagger/index.html - - - 200 - text/html;charset=utf-8 225.4978ms
+13-Jun-2022 Request starting HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json - -
+13-Jun-2022 Request finished HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 167.5438ms
+13-Jun-2022 Application is shutting down...
+13-Jun-2022 Hosting stopping
+13-Jun-2022 Connection id ""0HMIDM4EJVQL0"" is closing.
+13-Jun-2022 Connection id ""0HMIDM4EJVQL0"" is closed. The last processed stream ID was 3.
+13-Jun-2022 Connection id ""0HMIDM4EJVQL0"" received FIN.
+13-Jun-2022 Connection id ""0HMIDM4EJVQL0"" sending FIN because: ""The client closed the connection.""
+13-Jun-2022 Connection id ""0HMIDM4EJVQL0"" stopped.
+13-Jun-2022 Hosting stopped
+13-Jun-2022 User profile is available. Using '"C:\Users\gbern\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest.
+13-Jun-2022 Now listening on: "https://localhost:5001"
+13-Jun-2022 Now listening on: "http://localhost:5000"
+13-Jun-2022 Application started. Press Ctrl+C to shut down.
+13-Jun-2022 Hosting environment: "Development"
+13-Jun-2022 Content root path: "C:\Users\gbern\Desktop\GONZA\Programacion\AticmaDevplace\Dia13\CodeFirst\Challenge17Api\Challenge17ApiPeliculas"
+13-Jun-2022 Request starting HTTP/2 GET https://localhost:5001/swagger/index.html - -
+13-Jun-2022 Request finished HTTP/2 GET https://localhost:5001/swagger/index.html - - - 200 - text/html;charset=utf-8 192.4289ms
+13-Jun-2022 Request starting HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json - -
+13-Jun-2022 Request finished HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 166.3457ms
+13-Jun-2022 Application is shutting down...
+13-Jun-2022 User profile is available. Using '"C:\Users\gbern\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest.
+13-Jun-2022 Now listening on: "https://localhost:5001"
+13-Jun-2022 Now listening on: "http://localhost:5000"
+13-Jun-2022 Application started. Press Ctrl+C to shut down.
+13-Jun-2022 Hosting environment: "Development"
+13-Jun-2022 Content root path: "C:\Users\gbern\Desktop\GONZA\Programacion\AticmaDevplace\Dia13\CodeFirst\Challenge17Api\Challenge17ApiPeliculas"
+13-Jun-2022 Request starting HTTP/2 GET https://localhost:5001/swagger/index.html - -
+13-Jun-2022 Request finished HTTP/2 GET https://localhost:5001/swagger/index.html - - - 200 - text/html;charset=utf-8 147.9749ms
+13-Jun-2022 Request starting HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json - -
+13-Jun-2022 Request finished HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 161.0670ms
+13-Jun-2022 Application is shutting down...
+14-Jun-2022 User profile is available. Using '"C:\Users\gbern\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest.
+14-Jun-2022 Now listening on: "https://localhost:5001"
+14-Jun-2022 Now listening on: "http://localhost:5000"
+14-Jun-2022 Application started. Press Ctrl+C to shut down.
+14-Jun-2022 Hosting environment: "Development"
+14-Jun-2022 Content root path: "C:\Users\gbern\Desktop\GONZA\Programacion\AticmaDevplace\Dia13\CodeFirst\Challenge17Api\Challenge17ApiPeliculas"
+14-Jun-2022 Request starting HTTP/2 GET https://localhost:5001/swagger/index.html - -
+14-Jun-2022 Request finished HTTP/2 GET https://localhost:5001/swagger/index.html - - - 200 - text/html;charset=utf-8 213.9645ms
+14-Jun-2022 Request starting HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json - -
+14-Jun-2022 Request finished HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 249.5372ms
+14-Jun-2022 Request starting HTTP/2 POST https://localhost:5001/api/Authenticate/login application/json-patch+json 48
+14-Jun-2022 Executing endpoint '"Challenge17ApiPeliculas.Controllers.AuthenticateController.Login (Challenge17ApiPeliculas)"'
+14-Jun-2022 Route matched with "{action = \"Login\", controller = \"Authenticate\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(Challenge17ApiPeliculas.Models.LoginModel)" on controller "Challenge17ApiPeliculas.Controllers.AuthenticateController" ("Challenge17ApiPeliculas").
+14-Jun-2022 Entity Framework Core "5.0.17" initialized '"ApplicationDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None"
+14-Jun-2022 Executed DbCommand ("56"ms) [Parameters=["@__normalizedUserName_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0"
+14-Jun-2022 Executed DbCommand ("5"ms) [Parameters=["@__userId_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0"
+14-Jun-2022 Se ha logeado un usuario 06/14/2022 03:05:54
+14-Jun-2022 Executing "OkObjectResult", writing value of type '"<>f__AnonymousType0`2[[System.String, System.Private.CoreLib, Version=5.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.DateTime, System.Private.CoreLib, Version=5.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"'.
+14-Jun-2022 Executed action "Challenge17ApiPeliculas.Controllers.AuthenticateController.Login (Challenge17ApiPeliculas)" in 2099.9713ms
+14-Jun-2022 Executed endpoint '"Challenge17ApiPeliculas.Controllers.AuthenticateController.Login (Challenge17ApiPeliculas)"'
+14-Jun-2022 HTTP "POST" "/api/Authenticate/login" responded 200 in 2152.0270 ms
+14-Jun-2022 Request finished HTTP/2 POST https://localhost:5001/api/Authenticate/login application/json-patch+json 48 - 200 492 application/json;+charset=utf-8 2276.7301ms
+14-Jun-2022 Hosting starting
+14-Jun-2022 User profile is available. Using '"C:\Users\gbern\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest.
+14-Jun-2022 Reading data from file '"C:\Users\gbern\AppData\Local\ASP.NET\DataProtection-Keys\key-280a4463-17d5-4a2c-879c-6a889f1465a8.xml"'.
+14-Jun-2022 Reading data from file '"C:\Users\gbern\AppData\Local\ASP.NET\DataProtection-Keys\key-3ca7caab-b16b-453b-b0ff-af289ef57965.xml"'.
+14-Jun-2022 Found key {280a4463-17d5-4a2c-879c-6a889f1465a8}.
+14-Jun-2022 Found key {3ca7caab-b16b-453b-b0ff-af289ef57965}.
+14-Jun-2022 Considering key {3ca7caab-b16b-453b-b0ff-af289ef57965} with expiration date 2022-07-04 17:02:01Z as default key.
+14-Jun-2022 Forwarded activator type request from "Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Version=5.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60" to "Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60"
+14-Jun-2022 Decrypting secret element using Windows DPAPI.
+14-Jun-2022 Forwarded activator type request from "Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Version=5.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60" to "Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60"
+14-Jun-2022 Opening CNG algorithm '"AES"' from provider 'null' with chaining mode CBC.
+14-Jun-2022 Opening CNG algorithm '"SHA256"' from provider 'null' with HMAC.
+14-Jun-2022 Using key {3ca7caab-b16b-453b-b0ff-af289ef57965} as the default key.
+14-Jun-2022 Key ring with default key {3ca7caab-b16b-453b-b0ff-af289ef57965} was loaded during application startup.
+14-Jun-2022 Using development certificate: "CN=localhost" (Thumbprint: "57F6062A9819379EB5C1AAE66898EF05AAB06969")
+14-Jun-2022 Now listening on: "https://localhost:5001"
+14-Jun-2022 Now listening on: "http://localhost:5000"
+14-Jun-2022 Loaded hosting startup assembly "Challenge17ApiPeliculas"
+14-Jun-2022 Application started. Press Ctrl+C to shut down.
+14-Jun-2022 Hosting environment: "Development"
+14-Jun-2022 Content root path: "C:\Users\gbern\Desktop\GONZA\Programacion\AticmaDevplace\Dia13\CodeFirst\Challenge17Api\Challenge17ApiPeliculas"
+14-Jun-2022 Hosting started
+14-Jun-2022 Connection id ""0HMIDMBL6PM66"" accepted.
+14-Jun-2022 Connection id ""0HMIDMBL6PM66"" received FIN.
+14-Jun-2022 Connection id ""0HMIDMBL6PM66"" started.
+14-Jun-2022 Failed to authenticate HTTPS connection.
+System.IO.IOException:  Received an unexpected EOF or 0 bytes from the transport stream.
+   at System.Net.Security.SslStream.ReceiveBlobAsync[TIOAdapter](TIOAdapter adapter)
+   at System.Net.Security.SslStream.ForceAuthenticationAsync[TIOAdapter](TIOAdapter adapter, Boolean receiveFirst, Byte[] reAuthenticationData, Boolean isApm)
+   at Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionMiddleware.OnConnectionAsync(ConnectionContext context)
+14-Jun-2022 Connection id ""0HMIDMBL6PM66"" stopped.
+14-Jun-2022 Connection id ""0HMIDMBL6PM66"" sending FIN because: ""The Socket transport's send loop completed gracefully.""
+14-Jun-2022 Connection id ""0HMIDMBL6PM67"" accepted.
+14-Jun-2022 Connection id ""0HMIDMBL6PM67"" started.
+14-Jun-2022 Connection ""0HMIDMBL6PM67"" established using the following protocol: Tls12
+14-Jun-2022 Request starting HTTP/2 GET https://localhost:5001/swagger/index.html - -
+14-Jun-2022 Wildcard detected, all requests with hosts will be allowed.
+14-Jun-2022 Request finished HTTP/2 GET https://localhost:5001/swagger/index.html - - - 200 - text/html;charset=utf-8 205.4442ms
+14-Jun-2022 Request starting HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json - -
+14-Jun-2022 Request finished HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 170.3835ms
+14-Jun-2022 Request starting HTTP/2 POST https://localhost:5001/api/Authenticate/login application/json-patch+json 48
+14-Jun-2022 "POST" requests are not supported
+14-Jun-2022 1 candidate(s) found for the request path '"/api/Authenticate/login"'
+14-Jun-2022 Endpoint '"Challenge17ApiPeliculas.Controllers.AuthenticateController.Login (Challenge17ApiPeliculas)"' with route pattern '"api/Authenticate/login"' is valid for the request path '"/api/Authenticate/login"'
+14-Jun-2022 Request matched endpoint '"Challenge17ApiPeliculas.Controllers.AuthenticateController.Login (Challenge17ApiPeliculas)"'
+14-Jun-2022 AuthenticationScheme: "Bearer" was not authenticated.
+14-Jun-2022 Executing endpoint '"Challenge17ApiPeliculas.Controllers.AuthenticateController.Login (Challenge17ApiPeliculas)"'
+14-Jun-2022 Registered model binder providers, in the following order: ["Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BinderTypeModelBinderProvider", "Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ServicesModelBinderProvider", "Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinderProvider", "Microsoft.AspNetCore.Mvc.ModelBinding.Binders.HeaderModelBinderProvider", "Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FloatingPointTypeModelBinderProvider", "Microsoft.AspNetCore.Mvc.ModelBinding.Binders.EnumTypeModelBinderProvider", "Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DateTimeModelBinderProvider", "Microsoft.AspNetCore.Mvc.ModelBinding.Binders.SimpleTypeModelBinderProvider", "Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CancellationTokenModelBinderProvider", "Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ByteArrayModelBinderProvider", "Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormFileModelBinderProvider", "Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormCollectionModelBinderProvider", "Microsoft.AspNetCore.Mvc.ModelBinding.Binders.KeyValuePairModelBinderProvider", "Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DictionaryModelBinderProvider", "Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ArrayModelBinderProvider", "Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CollectionModelBinderProvider", "Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ComplexObjectModelBinderProvider"]
+14-Jun-2022 Route matched with "{action = \"Login\", controller = \"Authenticate\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(Challenge17ApiPeliculas.Models.LoginModel)" on controller "Challenge17ApiPeliculas.Controllers.AuthenticateController" ("Challenge17ApiPeliculas").
+14-Jun-2022 Execution plan of "authorization" filters (in the following order): ["None"]
+14-Jun-2022 Execution plan of "resource" filters (in the following order): ["None"]
+14-Jun-2022 Execution plan of "action" filters (in the following order): ["Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)", "Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter (Order: -2000)"]
+14-Jun-2022 Execution plan of "exception" filters (in the following order): ["None"]
+14-Jun-2022 Execution plan of "result" filters (in the following order): ["Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000)"]
+14-Jun-2022 Executing controller factory for controller "Challenge17ApiPeliculas.Controllers.AuthenticateController" ("Challenge17ApiPeliculas")
+14-Jun-2022 An 'IServiceProvider' was created for internal use by Entity Framework.
+14-Jun-2022 Executed controller factory for controller "Challenge17ApiPeliculas.Controllers.AuthenticateController" ("Challenge17ApiPeliculas")
+14-Jun-2022 Attempting to bind parameter '"model"' of type '"Challenge17ApiPeliculas.Models.LoginModel"' ...
+14-Jun-2022 Attempting to bind parameter '"model"' of type '"Challenge17ApiPeliculas.Models.LoginModel"' using the name '""' in request data ...
+14-Jun-2022 Rejected input formatter '"Microsoft.AspNetCore.Mvc.Formatters.NewtonsoftJsonPatchInputFormatter"' for content type '"application/json-patch+json"'.
+14-Jun-2022 Selected input formatter '"Microsoft.AspNetCore.Mvc.Formatters.NewtonsoftJsonInputFormatter"' for content type '"application/json-patch+json"'.
+14-Jun-2022 Connection id ""0HMIDMBL6PM67"", Request id ""0HMIDMBL6PM67:00000005"": started reading request body.
+14-Jun-2022 Connection id ""0HMIDMBL6PM67"", Request id ""0HMIDMBL6PM67:00000005"": done reading request body.
+14-Jun-2022 Done attempting to bind parameter '"model"' of type '"Challenge17ApiPeliculas.Models.LoginModel"'.
+14-Jun-2022 Done attempting to bind parameter '"model"' of type '"Challenge17ApiPeliculas.Models.LoginModel"'.
+14-Jun-2022 Attempting to validate the bound parameter '"model"' of type '"Challenge17ApiPeliculas.Models.LoginModel"' ...
+14-Jun-2022 Done attempting to validate the bound parameter '"model"' of type '"Challenge17ApiPeliculas.Models.LoginModel"'.
+14-Jun-2022 The index "{'UserId'}" was not created on entity type '"IdentityUserRole<string>"' as the properties are already covered by the index "{'UserId', 'RoleId'}".
+14-Jun-2022 The index "{'UserId'}" was not created on entity type '"IdentityUserToken<string>"' as the properties are already covered by the index "{'UserId', 'LoginProvider', 'Name'}".
+14-Jun-2022 Entity Framework Core "5.0.17" initialized '"ApplicationDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None"
+14-Jun-2022 Compiling query expression: "
+"'"DbSet<ApplicationUser>()
+    .FirstOrDefault(u => u.NormalizedUserName == __normalizedUserName_0)"'
+14-Jun-2022 Generated query execution expression: "
+"'"queryContext => ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync<ApplicationUser>(
+    asyncEnumerable: new SingleQueryingEnumerable<ApplicationUser>(
+        (RelationalQueryContext)queryContext, 
+        RelationalCommandCache.SelectExpression(
+            Projection Mapping:
+                EmptyProjectionMember -> Dictionary<IProperty, int> { [Property: ApplicationUser.Id (string) Required PK AfterSave:Throw, 0], [Property: ApplicationUser.AccessFailedCount (int) Required, 1], [Property: ApplicationUser.ConcurrencyStamp (string) Concurrency, 2], [Property: ApplicationUser.Email (string) MaxLength(256), 3], [Property: ApplicationUser.EmailConfirmed (bool) Required, 4], [Property: ApplicationUser.LockoutEnabled (bool) Required, 5], [Property: ApplicationUser.LockoutEnd (Nullable<DateTimeOffset>), 6], [Property: ApplicationUser.NormalizedEmail (string) Index MaxLength(256), 7], [Property: ApplicationUser.NormalizedUserName (string) Index MaxLength(256), 8], [Property: ApplicationUser.PasswordHash (string), 9], [Property: ApplicationUser.PhoneNumber (string), 10], [Property: ApplicationUser.PhoneNumberConfirmed (bool) Required, 11], [Property: ApplicationUser.SecurityStamp (string), 12], [Property: ApplicationUser.TwoFactorEnabled (bool) Required, 13], [Property: ApplicationUser.UserName (string) MaxLength(256), 14], }
+            SELECT TOP(1) a.Id, a.AccessFailedCount, a.ConcurrencyStamp, a.Email, a.EmailConfirmed, a.LockoutEnabled, a.LockoutEnd, a.NormalizedEmail, a.NormalizedUserName, a.PasswordHash, a.PhoneNumber, a.PhoneNumberConfirmed, a.SecurityStamp, a.TwoFactorEnabled, a.UserName
+            FROM AspNetUsers AS a
+            WHERE a.NormalizedUserName == @__normalizedUserName_0), 
+        Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, ApplicationUser>, 
+        Challenge17ApiPeliculas.Data.ApplicationDbContext, 
+        False, 
+        False
+    ), 
+    cancellationToken: queryContext.CancellationToken)"'
+14-Jun-2022 Creating DbCommand for '"ExecuteReader"'.
+14-Jun-2022 Created DbCommand for '"ExecuteReader"' (54ms).
+14-Jun-2022 Opening connection to database '"VideoClub"' on server '"DESKTOP-GBC99BA\SQLEXPRESS"'.
+14-Jun-2022 Opened connection to database '"VideoClub"' on server '"DESKTOP-GBC99BA\SQLEXPRESS"'.
+14-Jun-2022 Executing DbCommand [Parameters=["@__normalizedUserName_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0"
+14-Jun-2022 Executed DbCommand ("69"ms) [Parameters=["@__normalizedUserName_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0"
+14-Jun-2022 Context '"ApplicationDbContext"' started tracking '"ApplicationUser"' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+14-Jun-2022 A data reader was disposed.
+14-Jun-2022 Closing connection to database '"VideoClub"' on server '"DESKTOP-GBC99BA\SQLEXPRESS"'.
+14-Jun-2022 Closed connection to database '"VideoClub"' on server '"DESKTOP-GBC99BA\SQLEXPRESS"'.
+14-Jun-2022 Compiling query expression: "
+"'"DbSet<IdentityUserRole<string>>()
+    .Join(
+        inner: DbSet<IdentityRole>(), 
+        outerKeySelector: userRole => userRole.RoleId, 
+        innerKeySelector: role => role.Id, 
+        resultSelector: (userRole, role) => new { 
+            userRole = userRole, 
+            role = role
+         })
+    .Where(<>h__TransparentIdentifier0 => <>h__TransparentIdentifier0.userRole.UserId.Equals(__userId_0))
+    .Select(<>h__TransparentIdentifier0 => <>h__TransparentIdentifier0.role.Name)"'
+14-Jun-2022 Generated query execution expression: "
+"'"queryContext => new SingleQueryingEnumerable<string>(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache.SelectExpression(
+        Projection Mapping:
+            EmptyProjectionMember -> 0
+        SELECT a0.Name
+        FROM AspNetUserRoles AS a
+        INNER JOIN AspNetRoles AS a0 ON a.RoleId == a0.Id
+        WHERE a.UserId == @__userId_0), 
+    Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, string>, 
+    Challenge17ApiPeliculas.Data.ApplicationDbContext, 
+    False, 
+    False
+)"'
+14-Jun-2022 Creating DbCommand for '"ExecuteReader"'.
+14-Jun-2022 Created DbCommand for '"ExecuteReader"' (0ms).
+14-Jun-2022 Opening connection to database '"VideoClub"' on server '"DESKTOP-GBC99BA\SQLEXPRESS"'.
+14-Jun-2022 Opened connection to database '"VideoClub"' on server '"DESKTOP-GBC99BA\SQLEXPRESS"'.
+14-Jun-2022 Executing DbCommand [Parameters=["@__userId_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0"
+14-Jun-2022 Executed DbCommand ("10"ms) [Parameters=["@__userId_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0"
+14-Jun-2022 A data reader was disposed.
+14-Jun-2022 Closing connection to database '"VideoClub"' on server '"DESKTOP-GBC99BA\SQLEXPRESS"'.
+14-Jun-2022 Closed connection to database '"VideoClub"' on server '"DESKTOP-GBC99BA\SQLEXPRESS"'.
+14-Jun-2022 Se ha logeado un usuario 06/14/2022 03:07:06
+14-Jun-2022 List of registered output formatters, in the following order: ["Microsoft.AspNetCore.Mvc.Formatters.HttpNoContentOutputFormatter", "Microsoft.AspNetCore.Mvc.Formatters.StringOutputFormatter", "Microsoft.AspNetCore.Mvc.Formatters.StreamOutputFormatter", "Microsoft.AspNetCore.Mvc.Formatters.NewtonsoftJsonOutputFormatter"]
+14-Jun-2022 No information found on request to perform content negotiation.
+14-Jun-2022 Attempting to select an output formatter without using a content type as no explicit content types were specified for the response.
+14-Jun-2022 Attempting to select the first formatter in the output formatters list which can write the result.
+14-Jun-2022 Selected output formatter '"Microsoft.AspNetCore.Mvc.Formatters.NewtonsoftJsonOutputFormatter"' and content type '"application/json"' to write the response.
+14-Jun-2022 Executing "OkObjectResult", writing value of type '"<>f__AnonymousType0`2[[System.String, System.Private.CoreLib, Version=5.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.DateTime, System.Private.CoreLib, Version=5.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"'.
+14-Jun-2022 Executed action "Challenge17ApiPeliculas.Controllers.AuthenticateController.Login (Challenge17ApiPeliculas)" in 2233.7224ms
+14-Jun-2022 Executed endpoint '"Challenge17ApiPeliculas.Controllers.AuthenticateController.Login (Challenge17ApiPeliculas)"'
+14-Jun-2022 HTTP "POST" "/api/Authenticate/login" responded 200 in 2317.2031 ms
+14-Jun-2022 '"ApplicationDbContext"' disposed.
+14-Jun-2022 Request finished HTTP/2 POST https://localhost:5001/api/Authenticate/login application/json-patch+json 48 - 200 492 application/json;+charset=utf-8 2474.6076ms
+14-Jun-2022 Application is shutting down...
+14-Jun-2022 Hosting stopping
+14-Jun-2022 Connection id ""0HMIDMBL6PM67"" is closing.
+14-Jun-2022 Connection id ""0HMIDMBL6PM67"" is closed. The last processed stream ID was 5.
+14-Jun-2022 Connection id ""0HMIDMBL6PM67"" received FIN.
+14-Jun-2022 Connection id ""0HMIDMBL6PM67"" sending FIN because: ""The client closed the connection.""
+14-Jun-2022 Connection id ""0HMIDMBL6PM67"" stopped.
+14-Jun-2022 Hosting stopped
+14-Jun-2022 User profile is available. Using '"C:\Users\gbern\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest.
+14-Jun-2022 Now listening on: "https://localhost:5001"
+14-Jun-2022 Now listening on: "http://localhost:5000"
+14-Jun-2022 Application started. Press Ctrl+C to shut down.
+14-Jun-2022 Hosting environment: "Development"
+14-Jun-2022 Content root path: "C:\Users\gbern\Desktop\GONZA\Programacion\AticmaDevplace\Dia13\CodeFirst\Challenge17Api\Challenge17ApiPeliculas"
+14-Jun-2022 Request starting HTTP/2 GET https://localhost:5001/swagger/index.html - -
+14-Jun-2022 Request finished HTTP/2 GET https://localhost:5001/swagger/index.html - - - 200 - text/html;charset=utf-8 187.6116ms
+14-Jun-2022 Request starting HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json - -
+14-Jun-2022 Request finished HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 140.8717ms
+14-Jun-2022 Request starting HTTP/2 POST https://localhost:5001/api/Authenticate/login application/json-patch+json 48
+14-Jun-2022 Executing endpoint '"Challenge17ApiPeliculas.Controllers.AuthenticateController.Login (Challenge17ApiPeliculas)"'
+14-Jun-2022 Route matched with "{action = \"Login\", controller = \"Authenticate\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(Challenge17ApiPeliculas.Models.LoginModel)" on controller "Challenge17ApiPeliculas.Controllers.AuthenticateController" ("Challenge17ApiPeliculas").
+14-Jun-2022 Entity Framework Core "5.0.17" initialized '"ApplicationDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None"
+14-Jun-2022 Executed DbCommand ("56"ms) [Parameters=["@__normalizedUserName_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0"
+14-Jun-2022 Executed DbCommand ("5"ms) [Parameters=["@__userId_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0"
+14-Jun-2022 Se ha logeado un usuario 06/14/2022 03:09:56
+14-Jun-2022 Executing "OkObjectResult", writing value of type '"<>f__AnonymousType0`2[[System.String, System.Private.CoreLib, Version=5.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.DateTime, System.Private.CoreLib, Version=5.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"'.
+14-Jun-2022 Executed action "Challenge17ApiPeliculas.Controllers.AuthenticateController.Login (Challenge17ApiPeliculas)" in 2136.5861ms
+14-Jun-2022 Executed endpoint '"Challenge17ApiPeliculas.Controllers.AuthenticateController.Login (Challenge17ApiPeliculas)"'
+14-Jun-2022 HTTP "POST" "/api/Authenticate/login" responded 200 in 2184.4654 ms
+14-Jun-2022 Request finished HTTP/2 POST https://localhost:5001/api/Authenticate/login application/json-patch+json 48 - 200 492 application/json;+charset=utf-8 2321.9660ms
+14-Jun-2022 Application is shutting down...
+14-Jun-2022 User profile is available. Using '"C:\Users\gbern\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest.
+14-Jun-2022 Now listening on: "https://localhost:5001"
+14-Jun-2022 Now listening on: "http://localhost:5000"
+14-Jun-2022 Application started. Press Ctrl+C to shut down.
+14-Jun-2022 Hosting environment: "Development"
+14-Jun-2022 Content root path: "C:\Users\gbern\Desktop\GONZA\Programacion\AticmaDevplace\Dia13\CodeFirst\Challenge17Api\Challenge17ApiPeliculas"
+14-Jun-2022 Request starting HTTP/2 GET https://localhost:5001/swagger/index.html - -
+14-Jun-2022 Request finished HTTP/2 GET https://localhost:5001/swagger/index.html - - - 200 - text/html;charset=utf-8 193.1076ms
+14-Jun-2022 Request starting HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json - -
+14-Jun-2022 Request finished HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 151.2204ms
+14-Jun-2022 Request starting HTTP/2 POST https://localhost:5001/api/Authenticate/login application/json-patch+json 48
+14-Jun-2022 Executing endpoint '"Challenge17ApiPeliculas.Controllers.AuthenticateController.Login (Challenge17ApiPeliculas)"'
+14-Jun-2022 Route matched with "{action = \"Login\", controller = \"Authenticate\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(Challenge17ApiPeliculas.Models.LoginModel)" on controller "Challenge17ApiPeliculas.Controllers.AuthenticateController" ("Challenge17ApiPeliculas").
+14-Jun-2022 Entity Framework Core "5.0.17" initialized '"ApplicationDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None"
+14-Jun-2022 Executed DbCommand ("63"ms) [Parameters=["@__normalizedUserName_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0"
+14-Jun-2022 Executed DbCommand ("6"ms) [Parameters=["@__userId_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0"
+14-Jun-2022 Se ha logeado un usuario 06/14/2022 03:11:03
+14-Jun-2022 Executing "OkObjectResult", writing value of type '"<>f__AnonymousType0`2[[System.String, System.Private.CoreLib, Version=5.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.DateTime, System.Private.CoreLib, Version=5.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"'.
+14-Jun-2022 Executed action "Challenge17ApiPeliculas.Controllers.AuthenticateController.Login (Challenge17ApiPeliculas)" in 2072.0964ms
+14-Jun-2022 Executed endpoint '"Challenge17ApiPeliculas.Controllers.AuthenticateController.Login (Challenge17ApiPeliculas)"'
+14-Jun-2022 HTTP "POST" "/api/Authenticate/login" responded 200 in 2141.3332 ms
+14-Jun-2022 Request finished HTTP/2 POST https://localhost:5001/api/Authenticate/login application/json-patch+json 48 - 200 492 application/json;+charset=utf-8 2280.2636ms
+14-Jun-2022 Application is shutting down...
+14-Jun-2022 Se ha logeado un usuario 06/14/2022 03:11:58
+14-Jun-2022 HTTP "POST" "/api/Authenticate/login" responded 200 in 2165.0960 ms
+14-Jun-2022 Now listening on: "https://localhost:5001"
+14-Jun-2022 Now listening on: "http://localhost:5000"
+14-Jun-2022 Application started. Press Ctrl+C to shut down.
+14-Jun-2022 Hosting environment: "Development"
+14-Jun-2022 Content root path: "C:\Users\gbern\Desktop\GONZA\Programacion\AticmaDevplace\Dia13\CodeFirst\Challenge17Api\Challenge17ApiPeliculas"
+14-Jun-2022 Application is shutting down...
+14-Jun-2022 Now listening on: "https://localhost:5001"
+14-Jun-2022 Now listening on: "http://localhost:5000"
+14-Jun-2022 Application started. Press Ctrl+C to shut down.
+14-Jun-2022 Hosting environment: "Development"
+14-Jun-2022 Content root path: "C:\Users\gbern\Desktop\GONZA\Programacion\AticmaDevplace\Dia13\CodeFirst\Challenge17Api\Challenge17ApiPeliculas"
+14-Jun-2022 Logger inyectado en el constructor de authenticate correctamente
+14-Jun-2022 Se ha logeado un usuario 06/14/2022 03:33:47
+14-Jun-2022 HTTP "POST" "/api/Authenticate/login" responded 200 in 2124.4077 ms
+14-Jun-2022 Application is shutting down...
+14-Jun-2022 Now listening on: "https://localhost:5001"
+14-Jun-2022 Now listening on: "http://localhost:5000"
+14-Jun-2022 Application started. Press Ctrl+C to shut down.
+14-Jun-2022 Hosting environment: "Development"
+14-Jun-2022 Content root path: "C:\Users\gbern\Desktop\GONZA\Programacion\AticmaDevplace\Dia13\CodeFirst\Challenge17Api\Challenge17ApiPeliculas"
+14-Jun-2022 Logger inyectado en el constructor de authenticate correctamente
+14-Jun-2022 Se ha logeado un usuario 06/14/2022 03:40:58
+14-Jun-2022 HTTP "POST" "/api/Authenticate/login" responded 200 in 2120.5522 ms
+14-Jun-2022 Application is shutting down...
+14-Jun-2022 Now listening on: "https://localhost:5001"
+14-Jun-2022 Now listening on: "http://localhost:5000"
+14-Jun-2022 Application started. Press Ctrl+C to shut down.
+14-Jun-2022 Hosting environment: "Development"
+14-Jun-2022 Content root path: "C:\Users\gbern\Desktop\GONZA\Programacion\AticmaDevplace\Dia13\CodeFirst\Challenge17Api\Challenge17ApiPeliculas"
+14-Jun-2022 Logger inyectado en el constructor de authenticate correctamente
+14-Jun-2022 Se ha logeado un usuario 06/14/2022 03:42:24
+14-Jun-2022 HTTP "POST" "/api/Authenticate/login" responded 200 in 2277.0276 ms
+14-Jun-2022 Application is shutting down...
+14-Jun-2022 Now listening on: "https://localhost:5001"
+14-Jun-2022 Now listening on: "http://localhost:5000"
+14-Jun-2022 Application started. Press Ctrl+C to shut down.
+14-Jun-2022 Hosting environment: "Development"
+14-Jun-2022 Content root path: "C:\Users\gbern\Desktop\GONZA\Programacion\AticmaDevplace\Dia13\CodeFirst\Challenge17Api\Challenge17ApiPeliculas"
+14-Jun-2022 Logger inyectado en el constructor de authenticate correctamente
+14-Jun-2022 Se ha logeado un usuario 06/14/2022 03:43:45
+14-Jun-2022 HTTP "POST" "/api/Authenticate/login" responded 200 in 2141.5560 ms
+14-Jun-2022 Application is shutting down...
+14-Jun-2022 Now listening on: "https://localhost:5001"
+14-Jun-2022 Now listening on: "http://localhost:5000"
+14-Jun-2022 Application started. Press Ctrl+C to shut down.
+14-Jun-2022 Hosting environment: "Development"
+14-Jun-2022 Content root path: "C:\Users\gbern\Desktop\GONZA\Programacion\AticmaDevplace\Dia13\CodeFirst\Challenge17Api\Challenge17ApiPeliculas"
+14-Jun-2022 Logger inyectado en el constructor de authenticate correctamente
+14-Jun-2022 Se ha logeado un usuario 06/14/2022 03:44:34
+14-Jun-2022 HTTP "POST" "/api/Authenticate/login" responded 200 in 2269.5406 ms
+14-Jun-2022 Application is shutting down...
+14-Jun-2022 Now listening on: "https://localhost:5001"
+14-Jun-2022 Now listening on: "http://localhost:5000"
+14-Jun-2022 Application started. Press Ctrl+C to shut down.
+14-Jun-2022 Hosting environment: "Development"
+14-Jun-2022 Content root path: "C:\Users\gbern\Desktop\GONZA\Programacion\AticmaDevplace\Dia13\CodeFirst\Challenge17Api\Challenge17ApiPeliculas"
+14-Jun-2022 Application is shutting down...
+14-Jun-2022 Now listening on: "https://localhost:5001"
+14-Jun-2022 Now listening on: "http://localhost:5000"
+14-Jun-2022 Application started. Press Ctrl+C to shut down.
+14-Jun-2022 Hosting environment: "Development"
+14-Jun-2022 Content root path: "C:\Users\gbern\Desktop\GONZA\Programacion\AticmaDevplace\Dia13\CodeFirst\Challenge17Api\Challenge17ApiPeliculas"
+14-Jun-2022 Application is shutting down...
+14-Jun-2022 Now listening on: "https://localhost:5001"
+14-Jun-2022 Now listening on: "http://localhost:5000"
+14-Jun-2022 Application started. Press Ctrl+C to shut down.
+14-Jun-2022 Hosting environment: "Development"
+14-Jun-2022 Content root path: "C:\Users\gbern\Desktop\GONZA\Programacion\AticmaDevplace\Dia13\CodeFirst\Challenge17Api\Challenge17ApiPeliculas"
+14-Jun-2022 Now listening on: "https://localhost:5001"
+14-Jun-2022 Now listening on: "http://localhost:5000"
+14-Jun-2022 Application started. Press Ctrl+C to shut down.
+14-Jun-2022 Hosting environment: "Development"
+14-Jun-2022 Content root path: "C:\Users\gbern\Desktop\GONZA\Programacion\AticmaDevplace\Dia13\CodeFirst\Challenge17Api\Challenge17ApiPeliculas"
+14-Jun-2022 Application is shutting down...
+14-Jun-2022 Now listening on: "https://localhost:5001"
+{ SourceContext: "Microsoft.Hosting.Lifetime", MachineName: "DESKTOP-GBC99BA", ProcessId: 7728 }14-Jun-2022 Now listening on: "http://localhost:5000"
+{ SourceContext: "Microsoft.Hosting.Lifetime", MachineName: "DESKTOP-GBC99BA", ProcessId: 7728 }14-Jun-2022 Application started. Press Ctrl+C to shut down.
+{ SourceContext: "Microsoft.Hosting.Lifetime", MachineName: "DESKTOP-GBC99BA", ProcessId: 7728 }14-Jun-2022 Hosting environment: "Development"
+{ SourceContext: "Microsoft.Hosting.Lifetime", MachineName: "DESKTOP-GBC99BA", ProcessId: 7728 }14-Jun-2022 Content root path: "C:\Users\gbern\Desktop\GONZA\Programacion\AticmaDevplace\Dia13\CodeFirst\Challenge17Api\Challenge17ApiPeliculas"
+{ SourceContext: "Microsoft.Hosting.Lifetime", MachineName: "DESKTOP-GBC99BA", ProcessId: 7728 }14-Jun-2022 Application is shutting down...
+{ SourceContext: "Microsoft.Hosting.Lifetime", MachineName: "DESKTOP-GBC99BA", ProcessId: 7728 }14-Jun-2022 Logger inyectado en el constructor de authenticate correctamente
+{ SourceContext: "Challenge17ApiPeliculas.Controllers.AuthenticateController", ActionId: "cd6ff577-8abb-436e-aaff-ed8c03e4c9a6", ActionName: "Challenge17ApiPeliculas.Controllers.AuthenticateController.Login (Challenge17ApiPeliculas)", RequestId: "0HMIDN3GESRL9:00000005", RequestPath: "/api/Authenticate/login", ConnectionId: "0HMIDN3GESRL9", MachineName: "DESKTOP-GBC99BA", ProcessId: 12352 }14-Jun-2022 Se ha logeado un usuario 06/14/2022 03:49:51
+{ SourceContext: "Challenge17ApiPeliculas.Controllers.AuthenticateController", ActionId: "cd6ff577-8abb-436e-aaff-ed8c03e4c9a6", ActionName: "Challenge17ApiPeliculas.Controllers.AuthenticateController.Login (Challenge17ApiPeliculas)", RequestId: "0HMIDN3GESRL9:00000005", RequestPath: "/api/Authenticate/login", ConnectionId: "0HMIDN3GESRL9", MachineName: "DESKTOP-GBC99BA", ProcessId: 12352 }14-Jun-2022 HTTP "POST" "/api/Authenticate/login" responded 200 in 2135.8758 ms
+{ SourceContext: "Serilog.AspNetCore.RequestLoggingMiddleware", MachineName: "DESKTOP-GBC99BA", ProcessId: 12352 }14-Jun-2022 Now listening on: "https://localhost:5001"
+{ SourceContext: "Microsoft.Hosting.Lifetime", MachineName: "DESKTOP-GBC99BA", ProcessId: 11164 }14-Jun-2022 Now listening on: "http://localhost:5000"
+{ SourceContext: "Microsoft.Hosting.Lifetime", MachineName: "DESKTOP-GBC99BA", ProcessId: 11164 }14-Jun-2022 Application started. Press Ctrl+C to shut down.
+{ SourceContext: "Microsoft.Hosting.Lifetime", MachineName: "DESKTOP-GBC99BA", ProcessId: 11164 }14-Jun-2022 Hosting environment: "Development"
+{ SourceContext: "Microsoft.Hosting.Lifetime", MachineName: "DESKTOP-GBC99BA", ProcessId: 11164 }14-Jun-2022 Content root path: "C:\Users\gbern\Desktop\GONZA\Programacion\AticmaDevplace\Dia13\CodeFirst\Challenge17Api\Challenge17ApiPeliculas"
+{ SourceContext: "Microsoft.Hosting.Lifetime", MachineName: "DESKTOP-GBC99BA", ProcessId: 11164 }14-Jun-2022 Application is shutting down...
+{ SourceContext: "Microsoft.Hosting.Lifetime", MachineName: "DESKTOP-GBC99BA", ProcessId: 11164 }

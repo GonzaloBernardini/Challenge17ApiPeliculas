@@ -27,14 +27,14 @@ namespace Challenge17ApiPeliculas.Controllers
         private readonly IConfiguration _configuration;
         private readonly ILogger<AuthenticateController> _logger;
         
-        public AuthenticateController(UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager, IConfiguration configuration,ILoggerFactory logger)
+        public AuthenticateController(UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager, IConfiguration configuration, ILogger<AuthenticateController> logger)
         {
            
             this.userManager = userManager;
             this.roleManager = roleManager;
             _configuration = configuration;
-            _logger = logger.CreateLogger<AuthenticateController>();
-            _logger.LogDebug(1, "log inyectado en el controlador de autenticacion");
+            _logger = logger;
+            _logger.LogInformation("Logger inyectado en el constructor de authenticate correctamente");
         }
 
         [HttpPost]
